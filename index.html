@@ -26,19 +26,19 @@
 
     <h3>Do you own any cats already?</h3>
     <select id="userHaveCats" class="form-control">
-      <option value=false>I don't have other cats</option>
-      <option value=true>I have one or more cats already</option>
+      <option value="No">I don't have other cats</option>
+      <option value="Yes">I have one or more cats already</option>
     </select>
 
     <h3>Do you have any children living with you?</h3>
     <select id="userHaveKids" class="form-control">
-      <option value=true>Yes</option>
-      <option value=false>No</option>
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
     </select>
 
     <h3>Would you prefer an indoor or an outdoor cat?</h3>
-      <input type="radio" name="indoorOutdoor" value=true checked> Indoor<br>
-      <input type="radio" name="indoorOutdoor" value=false> Outdoor<br>
+      <input type="radio" name="indoorOutdoor" value="indoors" checked> Indoor<br>
+      <input type="radio" name="indoorOutdoor" value="outdoors"> Outdoor<br>
 
     <h3>What age of cat would you prefer?</h3>
     <input id="userCatAge" type="number">
@@ -54,13 +54,15 @@
 
     </div>
     <div id="profile-display">
-      <p>User's First Name:<span class="full-name"></span></p>
-      <p>User's Birth Date:<span class="user-DOB"></span></p>
-      <p>User has cats:<span class="has-cats"></span></p>
-      <p>User has children:<span class="has-kids"></span></p>
-      <p>User will keep indoors or outdoors:<span class="cat-indoor"></span></p>
-      <p>User's preferred cat age:<span class="catAgeOutput"></span></p>
-      <p>User's cat health preference:<span class="catHealthOutput"></span></p>
+      <p>User's Name: <span class="user-full-name"></span></p>
+      <p>User's Birth Date: <span class="user-DOB"></span></p>
+      <p>User has cats: <span class="user-has-cats"></span></p>
+      <p>User has children: <span class="user-has-kids"></span></p>
+      <p>User will keep indoors or outdoors: <span class="cat-indoor"></span></p>
+      <p>User's preferred cat age: <span class="catAgeOutput"></span></p>
+      <p>User's cat health preference: <span class="catHealthOutput"></span></p>
+      <p>User's chosen cat: <span class="test-cat"></span></p>
+      <p>User's chosen cat picture: <span class="test-cat-img"></span></p>
     </div>
   </body>
 </html>
