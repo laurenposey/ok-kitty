@@ -1,3 +1,28 @@
 .adopter {
-  margin-left: 20px; 
+  margin-left: 20px;
+  font-family: 'Courgette', cursive;
+}
+
+h1 {
+  margin-left: 20px;
+  font-family: 'Courgette', cursive;
+  color: #ffffff !important;
+}
+
+h2 {
+  margin-left: 20px;
+  font-family: 'Courgette', cursive;
+}
+
+.jumbotron {
+  background-color: #0040ff !important;
+
+}
+
+body {
+  background-color: #668cff;
+}
+
+button {
+   
 }
