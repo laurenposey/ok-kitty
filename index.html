@@ -26,9 +26,8 @@
 
     <h3>Do you own any cats already?</h3>
     <select id="userHaveCats" class="form-control">
-      <option value=0>I don't have other cats</option>
-      <option value=1>I have one cat already</option>
-      <option value=2>I have multiple cats</option>
+      <option value=false>I don't have other cats</option>
+      <option value=true>I have one or more cats already</option>
     </select>
 
     <h3>Do you have any children living with you?</h3>
@@ -38,8 +37,8 @@
     </select>
 
     <h3>Would you prefer an indoor or an outdoor cat?</h3>
-      <input type="radio" name="indoorOutdoor" value="indoor" checked> Indoor<br>
-      <input type="radio" name="indoorOutdoor" value="outdoor"> Outdoor<br>
+      <input type="radio" name="indoorOutdoor" value=true checked> Indoor<br>
+      <input type="radio" name="indoorOutdoor" value=false> Outdoor<br>
 
     <h3>What age of cat would you prefer?</h3>
     <input id="userCatAge" type="number">

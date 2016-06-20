@@ -24,23 +24,24 @@ function kittyCat() {
   }
 }
 
-function match (userCats, userKids, userIndoors) {
+function match (catArr, userCats, userKids, userIndoors) {
   matchedKitties=[];
-  kitties.forEach(function(kitty){
+  for(var i=0; i<catArr.length; i++) {
     var matchScore=0;
-    if(kitty.isOnlyKitty === userCats) {
-      matchScore++;
+    debugger;
+    if(catArr[i].isOnlyKitty === (userCats==="true")) {
+      matchScore+=1;
     }
-    if(kitty.isOnlyChild === userKids) {
-      matchScore++;
+    if(catArr[i].isOnlyChild === (userKids==="true")) {
+      matchScore+=1;
     }
-    if(kitty.isIndoor === userIndoors) {
-      matchScore++;
+    if(catArr[i].kittyIsIndoor === (userIndoors==="true")) {
+      matchScore+=1;
     }
     if(matchScore>=3) {
-      matchedKitties.push(kitty);
+      matchedKitties.push(catArr[i]);
     }
-  });
+  };
   return matchedKitties;
 }
 
@@ -53,11 +54,11 @@ function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor) {
   this.isIndoor = isIndoor;
 }
 
-function Kitty(kittyName, isOnlyKitty, isOnlyChild, isIndoor, kittyDOB) {
+function Kitty(kittyName, isOnlyKitty, isOnlyChild, kittyIsIndoor, kittyDOB) {
   this.kittyName = kittyName;
   this.isOnlyKitty = isOnlyKitty;
   this.isOnlyChild = isOnlyChild;
-  this.isIndoor = isIndoor;
+  this.kittyIsIndoor = kittyIsIndoor;
   this.kittyDOB = kittyDOB;
 }
 
@@ -73,15 +74,15 @@ User.prototype.haveKidsWritten = function() {
     return "do not have kids in the home";
   }
 }
-User.prototype.haveCatsWritten = function() {
-  if(this.haveCats===0) {
-    return "do not have other cats at the moment";
-  } else if(this.haveCats===1) {
-    return "have one other cat";
-  } else {
-    return "have multiple cats";
-  }
-}
+// User.prototype.haveCatsWritten = function() {
+//   if(this.haveCats===0) {
+//     return "do not have other cats at the moment";
+//   } else if(this.haveCats===1) {
+//     return "have one other cat";
+//   } else {
+//     return "have multiple cats";
+//   }
+// }
 
 $(document).ready(function(){
   $("#adopter-input").submit(function(event){
@@ -90,21 +91,20 @@ $(document).ready(function(){
     userFirstName=$("input#firstName").val();
     userLastName=$("input#lastName").val();
     userDOB=$("input#userBirthDate").val();
-    userHaveKids=$("#userHaveCats").val();
+    userHaveCats=$("#userHaveCats").val();
     userHaveKids=$("#userHaveKids").val();
     userIsIndoor=$("input:radio[name=indoorOutdoor]:checked").val();
     userCatAge=parseInt($("input#userCatAge").val());
     userCatHealth=$("#userCatHealth").val();
 
     var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor);
-    // $("#profile-display").show();
+    $("#profile-display").show();
     // $(".user-full-name")=User1.fullName();
     // $(".user-has-kids")=User1.haveKidsWritten();
     // $(".user-has-cats")=User1.haveCatsWritten();
     // $(".user-DOB")=User1.userDOB;
     // $(".cat-indoor")=User1.isIndoor;
-    debugger;
-    yourCat=match(User1.haveCats, User1.haveKids, User1.isIndoor);
+    yourCat=match(kitties,User1.haveCats, User1.haveKids, User1.isIndoor);
     console.log(yourCat)
     $(".test-cat").text(yourCat[0].kittyName)
   });
