@@ -13,7 +13,7 @@ _This is an Epicodus student project that creates a webpage for cats that need t
 Behavior  | Input Example | Output Example
 ------------- | ------------- | -------------
  Create a User Profile|User inputs answers to form questions  | An object is created for that user and it's properties displayed
- User is matched with a cat based on their profile| see above | Someone who has other cats and wants an outdoor cat gets matched with a cat who plays well with others and stays outside   
+ User is matched with a cat based on their profile and match is displayed in output with kitty img| see above | Someone who has other cats and wants an outdoor cat gets matched with a cat who plays well with others and stays outside  
  Display available kitties on homepage|none  |a carousel of kitten photos that updates as kittens are adopted
  |  |
  |  |

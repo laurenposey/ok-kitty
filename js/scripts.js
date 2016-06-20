@@ -1,5 +1,5 @@
 var kitties = [];
-var catnames = ["Chairman Meow", "Lulu", "June", "Penny", "Queen Gwendolyn", "Hazel", "Huxley", "Lady Meowingtons", "Meow Ming", "Todd", "Chad", "Steve", "Keith", "Mrs Little Piddles"];
+var catnames = [["Chairman Meow","img/lordweber.jpg"], ["Lulu","img/lulu.jpg"], ["June","img/otto.jpg"], ["Penny","img/face-paw.jpg"], ["Queen Gwendolyn","img/fluffybutt.jpg"], ["Hazel","img/crosseyedcat.jpg"], ["Huxley","img/huxley.jpg"], ["Meow Ming","img/meowming.jpg"]];
 function kittyCat() {
   for(var i=0; i<=1; i++) {
     for(var j=0; j<=1; j++) {
@@ -24,18 +24,18 @@ function kittyCat() {
   }
 }
 
+//refactor this into prototype. create a matchScore protoype that we run on each kitty object
 function match (catArr, userCats, userKids, userIndoors) {
   matchedKitties=[];
   for(var i=0; i<catArr.length; i++) {
     var matchScore=0;
-    debugger;
-    if(catArr[i].isOnlyKitty === (userCats==="true")) {
+    if(catArr[i].isOnlyKitty === (userCats==="Yes")) {
       matchScore+=1;
     }
-    if(catArr[i].isOnlyChild === (userKids==="true")) {
+    if(catArr[i].isOnlyChild === (userKids==="Yes")) {
       matchScore+=1;
     }
-    if(catArr[i].kittyIsIndoor === (userIndoors==="true")) {
+    if(catArr[i].kittyIsIndoor === (userIndoors==="indoors")) {
       matchScore+=1;
     }
     if(matchScore>=3) {
@@ -67,23 +67,6 @@ User.prototype.fullName = function() {
   return fullName;
 }
 
-User.prototype.haveKidsWritten = function() {
-  if(this.haveKids) {
-    return "have kids in the home";
-  } else {
-    return "do not have kids in the home";
-  }
-}
-// User.prototype.haveCatsWritten = function() {
-//   if(this.haveCats===0) {
-//     return "do not have other cats at the moment";
-//   } else if(this.haveCats===1) {
-//     return "have one other cat";
-//   } else {
-//     return "have multiple cats";
-//   }
-// }
-
 $(document).ready(function(){
   $("#adopter-input").submit(function(event){
     event.preventDefault();
@@ -99,13 +82,13 @@ $(document).ready(function(){
 
     var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor);
     $("#profile-display").show();
-    // $(".user-full-name")=User1.fullName();
-    // $(".user-has-kids")=User1.haveKidsWritten();
-    // $(".user-has-cats")=User1.haveCatsWritten();
-    // $(".user-DOB")=User1.userDOB;
-    // $(".cat-indoor")=User1.isIndoor;
+    $(".user-full-name").text(User1.fullName());
+    $(".user-has-kids").text(User1.haveKids);
+    $(".user-has-cats").text(User1.haveCats);
+    $(".user-DOB").text(User1.userDOB);
+    $(".cat-indoor").text(User1.isIndoor);
     yourCat=match(kitties,User1.haveCats, User1.haveKids, User1.isIndoor);
-    console.log(yourCat)
-    $(".test-cat").text(yourCat[0].kittyName)
+    $(".test-cat").text(yourCat[0].kittyName[0]);
+    $(".test-cat-img").html('<img src="'+yourCat[0].kittyName[1]+'" alt=your cat>');
   });
 });
