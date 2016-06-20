@@ -2,7 +2,7 @@
 
 #### _Ok Kitty, 20 June 2016_
 
-#### By _**Lauren Posey, Rachael Bermudes, Charles Ewel, and Charles Baxter Epicodus**_
+#### By _**Lauren Posey, Rachael Bermudes, Charles Ewel, and Charles Baxter. Epicodus**_
 
 ## Description
 
