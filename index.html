@@ -38,10 +38,8 @@
     </select>
 
     <h3>Would you prefer an indoor or an outdoor cat?</h3>
-    <form id="userIndoor">
       <input type="radio" name="indoorOutdoor" value="indoor" checked> Indoor<br>
       <input type="radio" name="indoorOutdoor" value="outdoor"> Outdoor<br>
-    </form>
 
     <h3>What age of cat would you prefer?</h3>
     <input id="userCatAge" type="number">
@@ -57,7 +55,14 @@
 
     </div>
     <div id="profile-display">
-
+      <p>User's First Name:<span id="firstNameOutput"></span></p>
+      <p>User's Last Name:<span id="lastNameOutput"></span></p>
+      <p>User's Birth Date:<span id="birthDateOutput"></span></p>
+      <p>User has cats:<span id="haveCatsOutput"></span></p>
+      <p>User has children:<span id="haveKidsOutput"></span></p>
+      <p>User will keep indoors or outdoors:<span id="indoorOutput"></span></p>
+      <p>User's preferred cat age:<span id="catAgeOutput"></span></p>
+      <p>User's cat health preference:<span id="catHealthOutput"></span></p>
     </div>
   </body>
 </html>
