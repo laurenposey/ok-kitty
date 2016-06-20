@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <script src="js/jquery-1.12.4.js"></script>
+    <script src="js/scripts.js"></script>
+    <title>Ok-Kitty</title>
+  </head>
+  <body>
+    <h1>Adopter Information</h1>
+    <div class="adopter">
+    <h3>First Name:</h3>
+    <input type="text" id="firstName" name="firstName" value="">
+    <h3>Last Name:</h3>
+    <input type="text" id="lastName" name="lastName" value="">
+
+    <h3>Please enter your date of birth:</h3>
+    <input id="userBirthDate" type="date">
+
+    <h3>Do you own any cats already?</h3>
+    <select id="userHaveCats" class="form-control">
+      <option value=0>I don't have other cats</option>
+      <option value=1>I have one cat already</option>
+      <option value=2>I have multiple cats</option>
+    </select>
+
+    <h3>Do you have any children living with you?</h3>
+    <select id="userHaveKids" class="form-control">
+      <option value=true>Yes</option>
+      <option value=false>No</option>
+    </select>
+
+    <h3>Would you prefer an indoor or an outdoor cat?</h3>
+    <form id="userIndoor">
+      <input type="radio" name="indoorOutdoor" value="indoor" checked> Indoor<br>
+      <input type="radio" name="indoorOutdoor" value="outdoor"> Outdoor<br>
+    </form>
+
+    <h3>What age of cat would you prefer?</h3>
+    <input id="userCatAge" type="number">
+
+    <h3>Are you comfortable adopting a cat with health issues?</h3>
+    <select id="userCatHealth" class="form-control" id="otherCats">
+      <option value=true>Yes</option>
+      <option value=false>No</option>
+    </select>
+
+    </div>
+
+  </body>
+</html>
