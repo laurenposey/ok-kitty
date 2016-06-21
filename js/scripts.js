@@ -61,7 +61,6 @@ function match (user, catArr) {
     }
 
   };
-  debugger;
   matchedKitties.sort(function (a,b) {
     if(a[1]-b[1]<0) {
       return -1;
