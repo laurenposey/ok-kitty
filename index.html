@@ -43,14 +43,14 @@
         <h3>What age of cat would you prefer?</h3>
         <input id="userCatAge" type="number">
 
-        <h3>Are you comfortable adopting a cat with health issues?</h3>
-        <select id="userCatHealth" class="form-control" id="otherCats">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
+    <h3>Are you comfortable adopting a cat with health issues?</h3>
+    <select id="userCatHealth" class="form-control">
+      <option value="Yes">Yes</option>
+      <option value="No">No</option>
+    </select>
 
-        <button type="submit" class="btn">Submit</button>
-      </form>
+    <button type="submit" class="btn">Submit</button>
+    </form>
     </div>
     <div id="profile-display">
       <p>User's Name: <span class="user-full-name"></span></p>
@@ -60,8 +60,10 @@
       <p>User will keep indoors or outdoors: <span class="user-indoor-pref"></span></p>
       <p>User's preferred cat age: <span class="user-age-pref"></span></p>
       <p>User's cat health preference: <span class="user-health-pref"></span></p>
-      <p>User's chosen cat: <span class="cat-name"></span></p>
-      <p>User's chosen cat picture: <span class="cat-picture"></span></p>
+      <p>User's chosen cat: <span class="best-cat-name"></span></p>
+      <p>User's chosen cat picture: <span class="best-cat-picture"></span></p>
+      <ol id="other-cats">
+      </ol>
     </div>
 
     <div id="cat-display">
