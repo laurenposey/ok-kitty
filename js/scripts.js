@@ -53,7 +53,6 @@ function match (user, catArr) {
     if(Math.pow(catArr[i].age-user.age,2)<=16) {
       matchScore+=0.5;
     }
-    debugger;
     if(matchScore>=3.5) {
       matchedKitties.push([catArr[i],matchScore]);
     }
@@ -99,7 +98,7 @@ User.prototype.fullName = function() {
 function altKitties(list, remainingCats) {
   list.show();
   for (var i=1 ; i<remainingCats.length ; i++) {
-    list.append("<li>"+remainingCats[i][0].kittyName+"</li>");
+    list.append("<li><span class=altcat choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
   }
 }
 
@@ -127,10 +126,12 @@ $(document).ready(function() {
     $(".user-age-pref").text(User1.age);
     var yourCat=match(User1, kitties);
     var bestCat=yourCat[0][0];
-    $(".cat-name").text(bestCat.kittyName);
-    $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
+    $(".best-cat-name").text(bestCat.kittyName);
+    $(".best-cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
     altKitties($("ol#other-cats"),yourCat)
-    $(".cat-name").click(function(event) {
+    $(".best-cat-name").click(function(event) {
+      $(".cat-name").text(bestCat.kittyName)
+      $(".cat-picture").html('<img src="'+bestCat.img+'" alt=your cat>')
       event.preventDefault();
       $("#cat-display").show();
       $(".cat-age").text(bestCat.age);
@@ -138,6 +139,19 @@ $(document).ready(function() {
       $(".cat-kids").text(bestCat.canBeWithKids);
       $(".cat-indoor-pref").text(bestCat.isIndoor);
       $(".cat-health").text(bestCat.healthIssues);
+    });
+    $(".altcat").click(function(event) {
+      event.preventDefault();
+      var index = $(this).attr("choice");
+      $("#cat-display").show();
+      console.log(index);
+      $(".cat-name").text(yourCat[index][0].kittyName)
+      $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" alt=your cat>')
+      $(".cat-age").text(yourCat[index][0].age);
+      $(".cat-other-cats").text(yourCat[index][0].canBeWithCats);
+      $(".cat-kids").text(yourCat[index][0].canBeWithKids);
+      $(".cat-indoor-pref").text(yourCat[index][0].isIndoor);
+      $(".cat-health").text(yourCat[index][0].healthIssues);
     });
   });
 });
