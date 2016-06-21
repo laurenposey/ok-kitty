@@ -201,4 +201,14 @@ $(document).ready(function() {
     $("#user-info").show()
     $("#basic-cat-info").hide()
   });
+  $("button#basic-to-advanced").click(function(event) {
+    event.preventDefault();
+    $("#advanced-cat-questions").show()
+    $("#basic-cat-info").hide()
+  });
+  $("button#advanced-to-basic").click(function(event) {
+    event.preventDefault();
+    $("#advanced-cat-questions").hide()
+    $("#basic-cat-info").show()
+  });
 });

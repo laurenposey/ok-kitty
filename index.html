@@ -46,9 +46,43 @@
           <option value="No">No</option>
         </select>
         <button type="button" id="basic-to-user" class="btn">Previous Section</button>
+        <button type="button" id="basic-to-advanced" class="btn">Next Section</button>
+      </div>
+      <div class="container" id="advanced-cat-questions">
+        <h3>Are you shy or outgoing?</h3>
+        <select id="userPersonality" class="form-control">
+          <option value="shy">Shy</option>
+          <option value="outgoing">Outgoing</option>
+        </select>
+        <h3>Are liberal or conservative?</h3>
+        <select id="userPolitics" class="form-control">
+          <option value="liberal">Liberal</option>
+          <option value="conservative">Conservative</option>
+        </select>
+        <h3>Do you enjoy long walks on the beach at sunset?</h3>
+        <select id="userBeach" class="form-control">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+        <h3>What is your favorite movie genre?</h3>
+        <select id="userMovie" class="form-control">
+          <option value="horror">Horror</option>
+          <option value="action">Action</option>
+          <option value="comedy">Comedy</option>
+          <option value="drama">Drama</option>
+          <option value="classics">Classics</option>
+        </select>
+        <h3>What's your favorite cuisine?</h3>
+        <select id="userCuisine" class="form-control">
+          <option value="mexican">Mexican</option>
+          <option value="italian">Italian</option>
+          <option value="mediterranean">Mediterranean</option>
+          <option value="chinese">Chinese</option>
+        </select>
+        <button type="button" id="advanced-to-basic" class="btn">Previous Section</button>
         <button type="submit" class="btn">Submit</button>
-      </form>
-    </div>
+      </div>
+    </form>
     <div id="profile-display">
       <p>User's Name: <span class="user-full-name"></span></p>
       <p>User's Birth Date: <span class="user-DOB"></span></p>

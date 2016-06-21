@@ -1,0 +1,37 @@
+.jumbotron {
+  margin-bottom: 0px;
+  background-image: url("../img/cats1.jpeg") !important;
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  -webkit-text-stroke: 2px black;
+}
+
+h1 {
+  margin-left: 20px;
+  font-family: 'Courgette', cursive;
+}
+
+h3 {
+  margin-left: 20px;
+  font-family: 'Courgette', cursive;
+}
+
+body {
+  background-color: #9DC8C8;
+}
+
+.rehome {
+  margin-left: 20px;
+  font-family: 'Courgette', cursive;
+
+}
+
+.btn {
+  margin-top: 20px;
+  background-color: #519D9E;
+  color: white;
+  margin-bottom: 20px;
+}
