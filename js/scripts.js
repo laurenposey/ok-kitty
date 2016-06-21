@@ -96,6 +96,13 @@ User.prototype.fullName = function() {
   return fullName;
 }
 
+function altKitties(list, remainingCats) {
+  list.show();
+  for (var i=1 ; i<remainingCats.length ; i++) {
+    list.append("<li>"+remainingCats[i][0].kittyName+"</li>");
+  }
+}
+
 $(document).ready(function() {
   $("#adopter-input").submit(function(event){
     event.preventDefault();
@@ -119,11 +126,10 @@ $(document).ready(function() {
     $(".user-health-pref").text(User1.health);
     $(".user-age-pref").text(User1.age);
     var yourCat=match(User1, kitties);
-    debugger;
     var bestCat=yourCat[0][0];
     $(".cat-name").text(bestCat.kittyName);
     $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
-
+    altKitties($("ol#other-cats"),yourCat)
     $(".cat-name").click(function(event) {
       event.preventDefault();
       $("#cat-display").show();
@@ -134,6 +140,4 @@ $(document).ready(function() {
       $(".cat-health").text(bestCat.healthIssues);
     });
   });
-
-
 });
