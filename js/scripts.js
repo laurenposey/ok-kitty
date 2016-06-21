@@ -123,6 +123,6 @@ $(document).ready(function() {
     $(".catAgeOutput").text(User1.age);
     yourCat=match(User1, kitties);
     $(".test-cat").text(yourCat[0][0].kittyName);
-    $(".test-cat-img").html('<img src="'+yourCat[0][0].img+'" alt=your cat>');
+    $(".test-cat-img").html('<img src="'+yourCat[0][0].img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
   });
 });

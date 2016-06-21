@@ -35,8 +35,10 @@ body {
   margin-top: 20px;
   background-color: #519D9E;
   color: white;
+  margin-bottom: 20px;
 }
 
 #profile-display {
   display: none;
+  margin-left: 30px;
 }
