@@ -48,6 +48,10 @@ body {
   background-color: #D1B6E1;
 }
 
+.pull-down {
+  margin-top: 20px;
+}
+
 .carousel-caption p {
   margin-bottom: 2px;
   font-size: 21px;

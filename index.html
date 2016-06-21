@@ -14,51 +14,45 @@
       <h1>Ok Kitty!</h1>
     </div>
     <h2>Adopter Information</h2>
-    <form id="adopter-input">
-      <div class="adopter">
-    <h3>First Name:</h3>
-    <input type="text" id="firstName" name="firstName" value="">
-    <h3>Last Name:</h3>
-    <input type="text" id="lastName" name="lastName" value="">
+    <div class="container adopter">
+      <form id="adopter-input">
+        <h3>First Name:</h3>
+        <input type="text" id="firstName" name="firstName" value="">
+        <h3>Last Name:</h3>
+        <input type="text" id="lastName" name="lastName" value="">
 
-    <h3>Please enter your date of birth:</h3>
-    <input id="userBirthDate" type="date">
+        <h3>Please enter your date of birth:</h3>
+        <input id="userBirthDate" type="date">
 
-    <h3>Do you own any cats already?</h3>
-    <select id="userHaveCats" class="form-control">
-      <option value="No">I don't have other cats</option>
-      <option value="Yes">I have one or more cats already</option>
-    </select>
+        <h3>Do you own any cats already?</h3>
+        <select id="userHaveCats" class="form-control">
+          <option value="No">I don't have other cats</option>
+          <option value="Yes">I have one or more cats already</option>
+        </select>
 
-    <h3>Do you have any children living with you?</h3>
-    <select id="userHaveKids" class="form-control">
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
+        <h3>Do you have any children living with you?</h3>
+        <select id="userHaveKids" class="form-control">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
 
-    <h3>Would you prefer an indoor or an outdoor cat?</h3>
-      <input type="radio" name="indoorOutdoor" value="indoors" checked> Indoor<br>
-      <input type="radio" name="indoorOutdoor" value="outdoors"> Outdoor<br>
+        <h3>Would you prefer an indoor or an outdoor cat?</h3>
+        <input type="radio" name="indoorOutdoor" value="indoors" checked> Indoor<br>
+        <input type="radio" name="indoorOutdoor" value="outdoors"> Outdoor<br>
 
-    <h3>What age of cat would you prefer?</h3>
-    <input id="userCatAge" type="number">
+        <h3>What age of cat would you prefer?</h3>
+        <input id="userCatAge" type="number">
 
-    <h3>Are you comfortable adopting a cat with health issues?</h3>
-    <select id="userCatHealth" class="form-control" id="otherCats">
-      <option value="Yes">Yes</option>
-      <option value="No">No</option>
-    </select>
+        <h3>Are you comfortable adopting a cat with health issues?</h3>
+        <select id="userCatHealth" class="form-control" id="otherCats">
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
 
-    <button type="submit" class="btn">Submit</button>
-    </form>
-
+        <button type="submit" class="btn">Submit</button>
+      </form>
     </div>
     <div id="profile-display">
-      <div>
-        <a href="#" >
-          <span class="test-cat-img"></span>
-        </a>
-      </div>
       <p>User's Name: <span class="user-full-name"></span></p>
       <p>User's Birth Date: <span class="user-DOB"></span></p>
       <p>User has cats: <span class="user-has-cats"></span></p>
@@ -69,14 +63,14 @@
       <p>User's chosen cat: <span class="cat-name"></span></p>
       <p>User's chosen cat picture: <span class="cat-picture"></span></p>
     </div>
+
     <div id="cat-display">
-      <p>Cat's name: <span class="cat-name"></span></p>
-      <p>Cat's picture: <span class="cat-picture"></span></p>
-      <p>Cat's age: <span class="cat-age"></span></p>
-      <p>Can this cat be around other cats? <span class="cat-other-cats"></span></p>
-      <p>Can this cat be around children? <span class="cat-kids"></span></p>
-      <p>Does this cat prefer being indoors or outdoors? <span class="cat-indoor-pref"></span></p>
-      <p>Cat's health: <span class="cat-health"></span></p>
+      <blockquote>
+        <p><span class="cat-name"></span> is a precious <span class="cat-age"></span> year old and <span class="cat-other-cats"></span> other kitty children. <span class="cat-name"></span> <span class="cat-kids"></span> with human children. </p>
+        <p>They prefer <span class="cat-indoor-pref"></span>. <span class="cat-name"></span> needs regular check-ups <span class="cat-health"></span> to stay healthy.</p>
+      </blockquote>
+
+      <p class="align-right"><span class="cat-picture"></span></p>
     </div>
   </body>
 </html>
