@@ -80,6 +80,11 @@ function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, h
   this.age = age;
 }
 
+User.prototype.fullName = function() {
+  var fullName=this.firstName+" "+this.lastName;
+  return fullName;
+}
+
 function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge, kittyHealth, kittyImg) {
   this.kittyName = kittyName;
   this.canBeWithCats = canBeWithCats;
@@ -90,13 +95,43 @@ function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge,
   this.img = kittyImg;
 }
 
-User.prototype.fullName = function() {
-  fullName=this.firstName+" "+this.lastName;
-  return fullName;
+Kitty.prototype.beWithCatsString = function() {
+  if(this.canBeWithCats) {
+    var canBeWithCatsString= "gets along well with other kitties"
+  } else {
+    canBeWithCatsString= "needs to be the only kitty in the house"
+  }
+  return canBeWithCatsString;
+}
+
+Kitty.prototype.beWithKidsString = function() {
+  if(this.canBeWithKids) {
+    var canBeWithKidsString= "can live with children"
+  } else {
+    canBeWithKidsString= "does not do well with children"
+  }
+  return canBeWithKidsString;
+}
+
+Kitty.prototype.indoorString = function() {
+  if(this.isIndoor) {
+    var indoorString= "the indoors"
+  } else {
+    indoorString= "the great outdoors"
+  }
+  return indoorString;
+}
+
+Kitty.prototype.healthString = function() {
+  if(this.healthIssues) {
+    var hasHealthIssuesString = "has some health issues and will need regular visits with the vet"
+  } else {
+    hasHealthIssuesString = "doesn't have any major health issues but should still be taken to the vet to stay healthy"
+  }
+  return hasHealthIssuesString
 }
 
 function altKitties(list, remainingCats) {
-  list.show();
   for (var i=1 ; i<remainingCats.length ; i++) {
     list.append("<li><span class=altcat choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
   }
@@ -135,10 +170,10 @@ $(document).ready(function() {
       event.preventDefault();
       $("#cat-display").show();
       $(".cat-age").text(bestCat.age);
-      $(".cat-other-cats").text(bestCat.canBeWithCats);
-      $(".cat-kids").text(bestCat.canBeWithKids);
-      $(".cat-indoor-pref").text(bestCat.isIndoor);
-      $(".cat-health").text(bestCat.healthIssues);
+      $(".cat-other-cats").text(bestCat.beWithCatsString());
+      $(".cat-kids").text(bestCat.beWithKidsString());
+      $(".cat-indoor-pref").text(bestCat.indoorString());
+      $(".cat-health").text(bestCat.healthString());
     });
     $(".altcat").click(function(event) {
       event.preventDefault();
@@ -148,10 +183,10 @@ $(document).ready(function() {
       $(".cat-name").text(yourCat[index][0].kittyName)
       $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" alt=your cat>')
       $(".cat-age").text(yourCat[index][0].age);
-      $(".cat-other-cats").text(yourCat[index][0].canBeWithCats);
-      $(".cat-kids").text(yourCat[index][0].canBeWithKids);
-      $(".cat-indoor-pref").text(yourCat[index][0].isIndoor);
-      $(".cat-health").text(yourCat[index][0].healthIssues);
+      $(".cat-other-cats").text(yourCat[index][0].beWithCatsString());
+      $(".cat-kids").text(yourCat[index][0].beWithKidsString());
+      $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
+      $(".cat-health").text(yourCat[index][0].healthString());
     });
   });
 });
