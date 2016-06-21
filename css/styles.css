@@ -36,6 +36,6 @@ body {
   color: white;
 }
 
-#profile-display {
+#profile-display, #cat-display {
   display: none;
 }

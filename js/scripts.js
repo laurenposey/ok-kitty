@@ -124,5 +124,19 @@ $(document).ready(function() {
     yourCat=match(User1, kitties);
     $(".test-cat").text(yourCat[0][0].kittyName);
     $(".test-cat-img").html('<img src="'+yourCat[0][0].img+'" alt=your cat>');
+
+    $(".test-cat").last().click(function(event) {
+      event.preventDefault();
+      $("#cat-info").show();
+    });
+  });
+
+  $(".test-cat").click(function(event) {
+    event.preventDefault();
+    $("#cat-display").show();
+    // $(".cat-age").text(.haveKids);
+    // $(".user-has-cats").text(User1.haveCats);
+    // $(".user-DOB").text(User1.dob);
+    // $(".cat-indoor").text(User1.isIndoor);
   });
 });
