@@ -24,11 +24,8 @@ function kittyCat() {
             health=false;
           }
           var age = 1+(4*l)*Math.floor((5*Math.random())+1);
-
           var img = catpictures[Math.floor(8*Math.random())]
-
           var Kitten = new Kitty(kittyName, cats, kids, indoor, age, health, img);
-
           kitties.push(Kitten);
         }
       }
@@ -41,31 +38,31 @@ function match (user, catArr) {
   matchedKitties=[];
   for(var i=0; i<catArr.length; i++) {
     var matchScore=0;
-    if(catArr[i].isOnlyKitty === (user.haveCats==="Yes")) {
+    if(catArr[i].canBeWithCats === (user.haveCats==="Yes")) {
       matchScore+=1;
     }
-    if(catArr[i].isOnlyChild === (user.haveKids==="Yes")) {
+    if(catArr[i].canBeWithKids === (user.haveKids==="Yes")) {
       matchScore+=1;
     }
     if(catArr[i].isIndoor === (user.isIndoor==="indoors")) {
       matchScore+=1;
     }
-    if(catArr[i].health === (user.health==="Yes")) {
+    if(catArr[i].healthIssues === (user.healthIssues==="Yes")) {
       matchScore+=1
     }
     if(Math.pow(catArr[i].age-user.age,2)<=16) {
-      matchScore+=1;
+      matchScore+=0.5;
     }
-    if(matchScore>=4) {
+    debugger;
+    if(matchScore>=3.5) {
       matchedKitties.push([catArr[i],matchScore]);
     }
-
   };
   matchedKitties.sort(function (a,b) {
     if(a[1]-b[1]<0) {
-      return -1;
-    } else if (a[1]-b[1]>0) {
       return 1;
+    } else if (a[1]-b[1]>0) {
+      return -1;
     } else {
       return 0;
     }
@@ -84,13 +81,13 @@ function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, h
   this.age = age;
 }
 
-function Kitty(kittyName, isOnlyKitty, isOnlyChild, kittyIsIndoor, kittyAge, kittyHealth, kittyImg) {
+function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge, kittyHealth, kittyImg) {
   this.kittyName = kittyName;
-  this.isOnlyKitty = isOnlyKitty;
-  this.isOnlyChild = isOnlyChild;
+  this.canBeWithCats = canBeWithCats;
+  this.canBeWithKids = canBeWithKids;
   this.isIndoor = kittyIsIndoor;
   this.age = kittyAge;
-  this.health = kittyHealth;
+  this.healthIssues = kittyHealth;
   this.img = kittyImg;
 }
 
@@ -118,25 +115,25 @@ $(document).ready(function() {
     $(".user-has-kids").text(User1.haveKids);
     $(".user-has-cats").text(User1.haveCats);
     $(".user-DOB").text(User1.dob);
-    $(".cat-indoor").text(User1.isIndoor);
-    $(".catHealthOutput").text(User1.health);
-    $(".catAgeOutput").text(User1.age);
-    yourCat=match(User1, kitties);
-    $(".test-cat").text(yourCat[0][0].kittyName);
-    $(".test-cat-img").html('<img src="'+yourCat[0][0].img+'" alt=your cat>');
+    $(".user-indoor-pref").text(User1.isIndoor);
+    $(".user-health-pref").text(User1.health);
+    $(".user-age-pref").text(User1.age);
+    var yourCat=match(User1, kitties);
+    debugger;
+    var bestCat=yourCat[0][0];
+    $(".cat-name").text(bestCat.kittyName);
+    $(".cat-picture").html('<img src="'+bestCat.img+'" alt=your cat>');
 
-    $(".test-cat").last().click(function(event) {
+    $(".cat-name").click(function(event) {
       event.preventDefault();
-      $("#cat-info").show();
+      $("#cat-display").show();
+      $(".cat-age").text(bestCat.age);
+      $(".cat-other-cats").text(bestCat.canBeWithCats);
+      $(".cat-kids").text(bestCat.canBeWithKids);
+      $(".cat-indoor-pref").text(bestCat.isIndoor);
+      $(".cat-health").text(bestCat.healthIssues);
     });
   });
 
-  $(".test-cat").click(function(event) {
-    event.preventDefault();
-    $("#cat-display").show();
-    // $(".cat-age").text(.haveKids);
-    // $(".user-has-cats").text(User1.haveCats);
-    // $(".user-DOB").text(User1.dob);
-    // $(".cat-indoor").text(User1.isIndoor);
-  });
+
 });
