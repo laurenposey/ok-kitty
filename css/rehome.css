@@ -1,3 +1,6 @@
+#rehome-output {
+  display: none;
+}
 .jumbotron {
   margin-top: 50px;
   margin-bottom: 0px;
@@ -41,4 +44,8 @@ body {
 .nav a {
   background-color: #519D9E;
   color: black !important;
+}
+
+.output-info {
+  font-size: 200%;
 }
