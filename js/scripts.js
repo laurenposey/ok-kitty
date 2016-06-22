@@ -35,63 +35,6 @@ function kittyCat() {
   }
 }
 
-//refactor this into prototype. create a matchScore protoype that we run on each kitty object
-// function match (user, catArr) {
-//   matchedKitties=[];
-//   for(var i=0; i<catArr.length; i++) {
-//     var matchScore=0;
-//     if(catArr[i].canBeWithCats === (user.haveCats==="Yes")) {
-//       matchScore+=1;
-//     }
-//     if(catArr[i].canBeWithKids === (user.haveKids==="Yes")) {
-//       matchScore+=1;
-//     }
-//     if(catArr[i].isIndoor === (user.isIndoor==="indoors")) {
-//       matchScore+=1;
-//     }
-//     if(catArr[i].healthIssues === (user.healthIssues==="Yes")) {
-//       matchScore+=1
-//     }
-//     if(Math.pow(catArr[i].age-user.age,2)<=16) {
-//       matchScore+=0.5;
-//     }
-//     if(matchScore>=3.5) {
-//       matchedKitties.push([catArr[i],matchScore]);
-//     }
-//   };
-//   matchedKitties.sort(function (a,b) {
-//     if(a[1]-b[1]<0) {
-//       return 1;
-//     } else if (a[1]-b[1]>0) {
-//       return -1;
-//     } else {
-//       return 0;
-//     }
-//   });
-//   return matchedKitties;
-// }
-
-User.prototype.match = function(catArr) {
-  matchedKitties=[];
-  for(var i=0; i<catArr.length; i++) {
-    var matchScore = Math.pow(catArr[i].age-this.age,2)+Math.pow(catArr[i].fluff-this.fluff,2)+ Math.pow(catArr[i].disposition-this.disposition,2);
-    var excluded=((!catArr[i].canBeWithKids) && (this.haveKids==="Yes")) || ((!catArr[i].canBeWithCats) && (this.haveCats==="Yes")) || ((catArr[i].healthIssues) && (this.health==="No"))||((catArr[i].isIndoor) && (this.isIndoor==="outdoors"));
-    // debugger;
-    if (!excluded) {
-      matchedKitties.push([catArr[i],matchScore]);
-    }
-  }
-  matchedKitties.sort(function (a,b) {
-    if(a[1]-b[1]>0) {
-      return 1;
-    } else if (a[1]-b[1]<0) {
-      return -1;
-    } else {
-      return 0;
-    }
-  });
-  return matchedKitties;
-}
 
 function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health, userDisposition, userFluff) {
   this.firstName = firstName;
@@ -109,6 +52,28 @@ function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, h
 User.prototype.fullName = function() {
   var fullName=this.firstName+" "+this.lastName;
   return fullName;
+}
+
+User.prototype.match = function(catArr) {
+  matchedKitties=[];
+  for(var i=0; i<catArr.length; i++) {
+    var matchScore = Math.pow(catArr[i].age-this.age,2) + Math.pow(catArr[i].fluff-this.fluff,2) +  Math.pow(catArr[i].disposition-this.disposition,2);
+    var excluded=((!catArr[i].canBeWithKids) && (this.haveKids==="Yes")) || ((!catArr[i].canBeWithCats) && (this.haveCats==="Yes")) || ((catArr[i].healthIssues) && (this.health==="No"))||((catArr[i].isIndoor) && (this.isIndoor==="outdoors"));
+    // debugger;
+    if (!excluded) {
+      matchedKitties.push([catArr[i],matchScore]);
+    }
+  }
+  matchedKitties.sort(function (a,b) {
+    if(a[1]-b[1]>0) {
+      return 1;
+    } else if (a[1]-b[1]<0) {
+      return -1;
+    } else {
+      return 0;
+    }
+  });
+  return matchedKitties;
 }
 
 function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge, kittyHealth, kittyImg, kittyDisposition, kittyFluff) {
@@ -184,6 +149,7 @@ $(document).ready(function() {
     var userBeach=parseInt($("#userBeach").val());
     var userMovie=parseInt($("#userMovie").val());
     var userFood=parseInt($("#userCuisine").val());
+
     var userFluff=userPersonality+userBeach+userFood+userMovie;
     var userDisposition=userPolitics+userBeach+userFood-userMovie;
 

@@ -23,13 +23,31 @@
       <div class="rehome">
         <form id="rehome-input">
           <h3>Name:</h3>
-          <input type="text" id="firstName" name="firstName" value="">
+          <input type="text" id="catName" name="firstName" value="">
 
           <h3>Cat Age:</h3>
           <input id="catAge" type="catage">
 
           <h3>Does cat have any health issues?</h3>
-          <select id="userCatHealth" class="form-control">
+          <select id="catHealth" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3>Does this kitty get along well with other kitties?</h3>
+          <select id="otherCatsGood" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3>Is this kitty nice and patient with small human children?</h3>
+          <select id="userGoodWithKids" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3>Is this kitty de-clawed?</h3>
+          <select id="userCatDeClawed" class="form-control">
             <option value="Yes">Yes</option>
             <option value="No">No</option>
           </select>
@@ -39,6 +57,9 @@
 
           <button type="submit" class="btn">Submit</button>
         </form>
+      </div>
+      <div id="rehome-output">
+
       </div>
     </div>
   </body>
