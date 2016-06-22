@@ -69,10 +69,15 @@ body {
 .potential-cats {
   float: bottom;
 }
-.best-cat-name, #other-cats li {
+#other-cats li {
   text-decoration: underline;
   color: #9350BA;
   font-size: 20px;
+}
+
+.best-cat-name {
+  text-decoration: underline;
+  color: #9350BA;
 }
 
 .best-cat-name:hover, #other-cats li:hover {
