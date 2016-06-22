@@ -23,7 +23,7 @@ function kittyCat() {
           if(l===0) {
             health=false;
           }
-          var age = 1+(4*l)*Math.floor((5*Math.random())+1);
+          var age = 1+(4*l)+Math.floor((5*Math.random())+1);
           var img = catpictures[Math.floor(8*Math.random())]
           var Kitten = new Kitty(kittyName, cats, kids, indoor, age, health, img);
           kitties.push(Kitten);
@@ -140,6 +140,8 @@ function altKitties(list, remainingCats) {
 $(document).ready(function() {
   $("#adopter-input").submit(function(event){
     event.preventDefault();
+    $("ol#other-cats li").remove();
+    kitties=[];
     kittyCat();
     userFirstName=$("input#firstName").val();
     userLastName=$("input#lastName").val();
@@ -188,5 +190,25 @@ $(document).ready(function() {
       $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
       $(".cat-health").text(yourCat[index][0].healthString());
     });
+  });
+  $("button#user-to-basic").click(function(event) {
+    event.preventDefault();
+    $("#user-info").hide()
+    $("#basic-cat-info").show()
+  });
+  $("button#basic-to-user").click(function(event) {
+    event.preventDefault();
+    $("#user-info").show()
+    $("#basic-cat-info").hide()
+  });
+  $("button#basic-to-advanced").click(function(event) {
+    event.preventDefault();
+    $("#advanced-cat-questions").show()
+    $("#basic-cat-info").hide()
+  });
+  $("button#advanced-to-basic").click(function(event) {
+    event.preventDefault();
+    $("#advanced-cat-questions").hide()
+    $("#basic-cat-info").show()
   });
 });
