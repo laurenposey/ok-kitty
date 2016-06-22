@@ -84,7 +84,7 @@ function kittiesDisplay (catarray) {
   for (i=0; i<catarray.length; i++) {
     thisCatName=kitties[i].kittyName;
     thisCatImg=kitties[i].img;
-    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img src="+thisCatImg+" alt=...> <div class='caption'> <h3>"+thisCatName+"</h3><p></p> <p><a href='# class='btn btn-primary' role='button'>Button</a> </div> </div> </div>");
+    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img src="+thisCatImg+" alt=...> <div class='caption'> <h3>"+thisCatName+"</h3><p></p> <p><a href='index.html'>Adopt Me!</a> </div> </div> </div>");
   }
 }
 

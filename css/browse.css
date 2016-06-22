@@ -30,8 +30,15 @@ body {
 
 .thumbnail {
   height: 480px;
+  background-color: #519D9E;
+  border: none;
+  color: white !important;
 }
 
 .thumbnail img {
   height: 80%;
+}
+
+.caption a {
+  color: white !important;
 }
