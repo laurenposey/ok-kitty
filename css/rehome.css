@@ -22,6 +22,7 @@ h3 {
 
 body {
   background-color: #9DC8C8;
+  font-family: 'Courgette', cursive;
 }
 
 .rehome {
@@ -35,4 +36,9 @@ body {
   background-color: #519D9E;
   color: white;
   margin-bottom: 20px;
+}
+
+.nav a {
+  background-color: #519D9E;
+  color: black !important;
 }
