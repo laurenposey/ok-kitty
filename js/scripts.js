@@ -24,8 +24,10 @@ function kittyCat() {
             health=false;
           }
           var age = 1+(4*l)+Math.floor((5*Math.random())+1);
+          var disposition = Math.floor((11*Math.random())-5);
+          var fluff = Math.floor((11*Math.random())-5);
           var img = catpictures[Math.floor(8*Math.random())]
-          var Kitten = new Kitty(kittyName, cats, kids, indoor, age, health, img);
+          var Kitten = new Kitty(kittyName, cats, kids, indoor, age, health, img, disposition, fluff);
           kitties.push(Kitten);
         }
       }
@@ -34,33 +36,55 @@ function kittyCat() {
 }
 
 //refactor this into prototype. create a matchScore protoype that we run on each kitty object
-function match (user, catArr) {
+// function match (user, catArr) {
+//   matchedKitties=[];
+//   for(var i=0; i<catArr.length; i++) {
+//     var matchScore=0;
+//     if(catArr[i].canBeWithCats === (user.haveCats==="Yes")) {
+//       matchScore+=1;
+//     }
+//     if(catArr[i].canBeWithKids === (user.haveKids==="Yes")) {
+//       matchScore+=1;
+//     }
+//     if(catArr[i].isIndoor === (user.isIndoor==="indoors")) {
+//       matchScore+=1;
+//     }
+//     if(catArr[i].healthIssues === (user.healthIssues==="Yes")) {
+//       matchScore+=1
+//     }
+//     if(Math.pow(catArr[i].age-user.age,2)<=16) {
+//       matchScore+=0.5;
+//     }
+//     if(matchScore>=3.5) {
+//       matchedKitties.push([catArr[i],matchScore]);
+//     }
+//   };
+//   matchedKitties.sort(function (a,b) {
+//     if(a[1]-b[1]<0) {
+//       return 1;
+//     } else if (a[1]-b[1]>0) {
+//       return -1;
+//     } else {
+//       return 0;
+//     }
+//   });
+//   return matchedKitties;
+// }
+
+User.prototype.match = function(catArr) {
   matchedKitties=[];
   for(var i=0; i<catArr.length; i++) {
-    var matchScore=0;
-    if(catArr[i].canBeWithCats === (user.haveCats==="Yes")) {
-      matchScore+=1;
-    }
-    if(catArr[i].canBeWithKids === (user.haveKids==="Yes")) {
-      matchScore+=1;
-    }
-    if(catArr[i].isIndoor === (user.isIndoor==="indoors")) {
-      matchScore+=1;
-    }
-    if(catArr[i].healthIssues === (user.healthIssues==="Yes")) {
-      matchScore+=1
-    }
-    if(Math.pow(catArr[i].age-user.age,2)<=16) {
-      matchScore+=0.5;
-    }
-    if(matchScore>=3.5) {
+    var matchScore = Math.pow(catArr[i].age-this.age,2)+Math.pow(catArr[i].fluff-this.fluff,2)+ Math.pow(catArr[i].disposition-this.disposition,2);
+    var excluded=((!catArr[i].canBeWithKids) && (this.haveKids==="Yes")) || ((!catArr[i].canBeWithCats) && (this.haveCats==="Yes")) || ((catArr[i].healthIssues) && (this.health==="No"))||((catArr[i].isIndoor) && (this.isIndoor==="outdoors"));
+    // debugger;
+    if (!excluded) {
       matchedKitties.push([catArr[i],matchScore]);
     }
-  };
+  }
   matchedKitties.sort(function (a,b) {
-    if(a[1]-b[1]<0) {
+    if(a[1]-b[1]>0) {
       return 1;
-    } else if (a[1]-b[1]>0) {
+    } else if (a[1]-b[1]<0) {
       return -1;
     } else {
       return 0;
@@ -69,7 +93,7 @@ function match (user, catArr) {
   return matchedKitties;
 }
 
-function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health) {
+function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health, userDisposition, userFluff) {
   this.firstName = firstName;
   this.lastName = lastName;
   this.haveCats = haveCats;
@@ -78,6 +102,8 @@ function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, h
   this.isIndoor = isIndoor;
   this.health = health;
   this.age = age;
+  this.disposition=userDisposition;
+  this.fluff=userFluff;
 }
 
 User.prototype.fullName = function() {
@@ -85,7 +111,7 @@ User.prototype.fullName = function() {
   return fullName;
 }
 
-function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge, kittyHealth, kittyImg) {
+function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge, kittyHealth, kittyImg, kittyDisposition, kittyFluff) {
   this.kittyName = kittyName;
   this.canBeWithCats = canBeWithCats;
   this.canBeWithKids = canBeWithKids;
@@ -93,6 +119,8 @@ function Kitty(kittyName, canBeWithCats, canBeWithKids, kittyIsIndoor, kittyAge,
   this.age = kittyAge;
   this.healthIssues = kittyHealth;
   this.img = kittyImg;
+  this.disposition=kittyDisposition;
+  this.fluff=kittyFluff;
 }
 
 Kitty.prototype.beWithCatsString = function() {
@@ -143,16 +171,23 @@ $(document).ready(function() {
     $("ol#other-cats li").remove();
     kitties=[];
     kittyCat();
-    userFirstName=$("input#firstName").val();
-    userLastName=$("input#lastName").val();
-    userDOB=$("input#userBirthDate").val();
-    userHaveCats=$("#userHaveCats").val();
-    userHaveKids=$("#userHaveKids").val();
-    userIsIndoor=$("input:radio[name=indoorOutdoor]:checked").val();
-    userCatAge=parseInt($("input#userCatAge").val());
-    userCatHealth=$("#userCatHealth").val();
+    var userFirstName=$("input#firstName").val();
+    var userLastName=$("input#lastName").val();
+    var userDOB=$("input#userBirthDate").val();
+    var userHaveCats=$("#userHaveCats").val();
+    var userHaveKids=$("#userHaveKids").val();
+    var userIsIndoor=$("input:radio[name=indoorOutdoor]:checked").val();
+    var userCatAge=parseInt($("input#userCatAge").val());
+    var userCatHealth=$("#userCatHealth").val();
+    var userPersonality=parseInt($("#userPersonality").val());
+    var userPolitics=parseInt($("#userPolitics").val());
+    var userBeach=parseInt($("#userBeach").val());
+    var userMovie=parseInt($("#userMovie").val());
+    var userFood=parseInt($("#userCuisine").val());
+    var userFluff=userPersonality+userBeach+userFood+userMovie;
+    var userDisposition=userPolitics+userBeach+userFood-userMovie;
 
-    var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor, userCatAge, userCatHealth);
+    var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor, userCatAge, userCatHealth, userDisposition, userFluff);
     $("#profile-display").show();
     $(".user-full-name").text(User1.fullName());
     $(".user-has-kids").text(User1.haveKids);
@@ -161,14 +196,17 @@ $(document).ready(function() {
     $(".user-indoor-pref").text(User1.isIndoor);
     $(".user-health-pref").text(User1.health);
     $(".user-age-pref").text(User1.age);
-    var yourCat=match(User1, kitties);
+    $(".user-disposition").text(User1.disposition);
+    $(".user-fluff").text(User1.fluff);
+    var yourCat=User1.match(kitties);
+    console.log(yourCat)
     var bestCat=yourCat[0][0];
     $(".best-cat-name").text(bestCat.kittyName);
     $(".best-cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
     altKitties($("ol#other-cats"),yourCat)
     $(".best-cat-name").click(function(event) {
       $(".cat-name").text(bestCat.kittyName)
-      $(".cat-picture").html('<img src="'+bestCat.img+'" alt=your cat>')
+      $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
       event.preventDefault();
       $("#cat-display").show();
       $(".cat-age").text(bestCat.age);
@@ -176,19 +214,22 @@ $(document).ready(function() {
       $(".cat-kids").text(bestCat.beWithKidsString());
       $(".cat-indoor-pref").text(bestCat.indoorString());
       $(".cat-health").text(bestCat.healthString());
+      $(".cat-disposition").text(bestCat.disposition);
+      $(".cat-fluff").text(bestCat.fluff);
     });
     $(".altcat").click(function(event) {
       event.preventDefault();
       var index = $(this).attr("choice");
       $("#cat-display").show();
-      console.log(index);
       $(".cat-name").text(yourCat[index][0].kittyName)
-      $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" alt=your cat>')
+      $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
       $(".cat-age").text(yourCat[index][0].age);
       $(".cat-other-cats").text(yourCat[index][0].beWithCatsString());
       $(".cat-kids").text(yourCat[index][0].beWithKidsString());
       $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
       $(".cat-health").text(yourCat[index][0].healthString());
+      $(".cat-disposition").text(yourCat[index][0].disposition);
+      $(".cat-fluff").text(yourCat[index][0].fluff);
     });
   });
   $("button#user-to-basic").click(function(event) {

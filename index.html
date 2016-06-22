@@ -60,33 +60,33 @@
       <div class="container" id="advanced-cat-questions">
         <h3>Are you shy or outgoing?</h3>
         <select id="userPersonality" class="form-control">
-          <option value="shy">Shy</option>
-          <option value="outgoing">Outgoing</option>
+          <option value="3">Shy</option>
+          <option value="-3">Outgoing</option>
         </select>
         <h3>Are liberal or conservative?</h3>
         <select id="userPolitics" class="form-control">
-          <option value="liberal">Liberal</option>
-          <option value="conservative">Conservative</option>
+          <option value="2">Liberal</option>
+          <option value="-2">Conservative</option>
         </select>
         <h3>Do you enjoy long walks on the beach at sunset?</h3>
         <select id="userBeach" class="form-control">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
+          <option value="1">Yes</option>
+          <option value="-1">No</option>
         </select>
         <h3>What is your favorite movie genre?</h3>
         <select id="userMovie" class="form-control">
-          <option value="horror">Horror</option>
-          <option value="action">Action</option>
-          <option value="comedy">Comedy</option>
-          <option value="drama">Drama</option>
-          <option value="classics">Classics</option>
+          <option value="4">Horror</option>
+          <option value="2">Action</option>
+          <option value="0">Comedy</option>
+          <option value="-2">Drama</option>
+          <option value="-4">Classics</option>
         </select>
         <h3>What's your favorite cuisine?</h3>
         <select id="userCuisine" class="form-control">
-          <option value="mexican">Mexican</option>
-          <option value="italian">Italian</option>
-          <option value="mediterranean">Mediterranean</option>
-          <option value="chinese">Chinese</option>
+          <option value="2">Mexican</option>
+          <option value="1">Italian</option>
+          <option value="-1">Mediterranean</option>
+          <option value="-2">Chinese</option>
         </select>
         <button type="button" id="advanced-to-basic" class="btn">Previous Section</button>
         <button type="submit" class="btn">Submit</button>
@@ -102,6 +102,8 @@
       <p>User's cat health preference: <span class="user-health-pref"></span></p>
       <p>User's chosen cat: <span class="best-cat-name"></span></p>
       <p>User's chosen cat picture: <span class="best-cat-picture"></span></p>
+      <p>User's Fluff: <span class="user-fluff"></span></p>
+      <p>User's Disposition: <span class="user-disposition"></span></p>
       <ol id="other-cats">
       </ol>
     </div>
@@ -110,7 +112,10 @@
         <p><span class="cat-name"></span> is a precious <span class="cat-age"></span> year old and <span class="cat-other-cats"></span>. <span class="cat-name"></span> <span class="cat-kids"></span>.</p>
         <p>They prefer <span class="cat-indoor-pref"></span>. <span class="cat-name"></span> <span class="cat-health"></span>.</p>
       </blockquote>
-      </div>
+      <p>Cat's Fluff: <span class="cat-fluff"></span></p>
+      <p>Cat's Disposition: <span class="cat-disposition"></span></p>
+      <p class="align-right"><span class="cat-picture"></span></p>
     </div>
+
   </body>
 </html>
