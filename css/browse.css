@@ -9,8 +9,6 @@ h2 {
 }
 
 .jumbotron {
-  margin-bottom: 45px;
-  margin-top: 45px;
   background-image: url("../img/cats1.jpeg") !important;
   background-position: 0% 25%;
   background-size: cover;
@@ -37,6 +35,7 @@ body {
 
 .thumbnail img {
   height: 80%;
+  max-width:auto;
 }
 
 .caption a {

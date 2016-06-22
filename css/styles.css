@@ -15,8 +15,6 @@ h2 {
 }
 
 .jumbotron {
-  margin-bottom: 0px;
-  margin-top: 45px;
   background-image: url("../img/cats1.jpeg") !important;
   background-position: 0% 25%;
   background-size: cover;
@@ -70,6 +68,11 @@ body {
 
 .potential-cats {
   float: bottom;
+}
+.best-cat-name, #other-cats li {
+  text-decoration: underline;
+  color: #9350BA;
+  font-size: 20px;
 }
 
 .best-cat-name:hover, #other-cats li:hover {
