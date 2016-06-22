@@ -11,6 +11,13 @@
   -webkit-text-stroke: 2px black;
 }
 
+.navbar {
+  padding-top: 7px;
+  margin-bottom: 0;
+  background-color: #9DC8C8;
+  border: none;
+}
+
 h1 {
   margin-left: 20px;
   font-family: 'Courgette', cursive;

@@ -6,17 +6,38 @@
     <link href="css/styles.css" rel="stylesheet" type="text/css">
     <script src="js/jquery-1.12.4.js"></script>
     <script src="js/scripts.js"></script>
+    <script src="js/bootstrap.min.js"></script>
     <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
     <title>Ok-Kitty</title>
   </head>
   <body>
     <div class="container">
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="teamproject"><a href="landingpage.html">Home</a></li>
-        <li role="teamproject" class="active"><a href="index.html">Adopter Survey</a></li>
-        <li role="teamproject"><a href="rehome.html">Rehome A Cat</a></li>
-        <li role="teamproject"><a href="browse.html">Available Cats</a></li>
-      </ul>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target="#smallNav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </a>
+        <ul class="dropdown-menu pull-right">
+          <li><a href="landingpage.html">Home</a></li>
+          <li class="active"><a href="index.html">Adopter Survey</a></li>
+          <li><a href="browse.html">Available Cats</a></li>
+          <li><a href="rehome.html">Rehome a Cat</a></li>
+        </ul>
+        <div class="collapse navbar-collapse">
+          <ul class="nav nav-tabs pull-right">
+            <li><a href="landingpage.html">Home</a></li>
+            <li class="active"><a href="index.html">Adopter Survey</a></li>
+            <li><a href="browse.html">Available Cats</a></li>
+            <li><a href="rehome.html">Rehome a Cat</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
     <div class="jumbotron">
       <h1>Adopt a Cat</h1>
     </div>

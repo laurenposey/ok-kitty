@@ -11,12 +11,32 @@
   </head>
   <body>
     <div class="container">
-      <ul class="nav nav-tabs" role="tablist">
-        <li role="teamproject"><a href="landingpage.html">Home</a></li>
-        <li role="teamproject"><a href="index.html">Adopter Survey</a></li>
-        <li role="teamproject" class="active"><a href="rehome.html">Rehome A Cat</a></li>
-        <li role="teamproject"><a href="browse.html">Available Cats</a></li>
-      </ul>
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target="#smallNav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </a>
+        <ul class="dropdown-menu pull-right">
+          <li><a href="landingpage.html">Home</a></li>
+          <li class="active"><a href="index.html">Adopter Survey</a></li>
+          <li><a href="browse.html">Available Cats</a></li>
+          <li><a href="rehome.html">Rehome a Cat</a></li>
+        </ul>
+        <div class="collapse navbar-collapse">
+          <ul class="nav nav-tabs pull-right">
+            <li><a href="landingpage.html">Home</a></li>
+            <li><a href="index.html">Adopter Survey</a></li>
+            <li><a href="browse.html">Available Cats</a></li>
+            <li class="active"><a href="rehome.html">Rehome a Cat</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
       <div class="jumbotron">
         <h1>Re-Home A Cat</h1>
       </div>
