@@ -154,27 +154,30 @@ $(document).ready(function() {
     var userDisposition=userPolitics+userBeach+userFood-userMovie;
 
     var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor, userCatAge, userCatHealth, userDisposition, userFluff);
-    $("#profile-display").show();
-    $(".user-full-name").text(User1.fullName());
-    $(".user-has-kids").text(User1.haveKids);
-    $(".user-has-cats").text(User1.haveCats);
-    $(".user-DOB").text(User1.dob);
-    $(".user-indoor-pref").text(User1.isIndoor);
-    $(".user-health-pref").text(User1.health);
-    $(".user-age-pref").text(User1.age);
-    $(".user-disposition").text(User1.disposition);
-    $(".user-fluff").text(User1.fluff);
+
     var yourCat=User1.match(kitties);
     console.log(yourCat)
     var bestCat=yourCat[0][0];
     $(".best-cat-name").text(bestCat.kittyName);
-    $(".best-cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
+    $(".cat-name").text(bestCat.kittyName);
+    $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
     altKitties($("ol#other-cats"),yourCat)
+    $("#profile-display").show();
+    $("#cat-display").show();
+    $("#cat-display").show();
+    $(".cat-age").text(bestCat.age);
+    $(".cat-other-cats").text(bestCat.beWithCatsString());
+    $(".cat-kids").text(bestCat.beWithKidsString());
+    $(".cat-indoor-pref").text(bestCat.indoorString());
+    $(".cat-health").text(bestCat.healthString());
+    $(".cat-disposition").text(bestCat.disposition);
+    $(".cat-fluff").text(bestCat.fluff);
     $(".best-cat-name").click(function(event) {
       $(".cat-name").text(bestCat.kittyName)
       $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
       event.preventDefault();
       $("#cat-display").show();
+      $(".cat-name").text(bestCat.kittyName)
       $(".cat-age").text(bestCat.age);
       $(".cat-other-cats").text(bestCat.beWithCatsString());
       $(".cat-kids").text(bestCat.beWithKidsString());

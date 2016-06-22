@@ -10,6 +10,7 @@
     <title>Ok-Kitty</title>
   </head>
   <body>
+    <div class="container">
     <ul class="nav nav-tabs" role="tablist">
       <li role="teamproject"><a href="landingpage.html">Home</a></li>
       <li role="teamproject" class="active"><a href="index.html">Adopter Survey</a></li>
@@ -21,7 +22,7 @@
     </div>
 
     <form id="adopter-input">
-      <div class="container" id="user-info">
+      <div id="user-info">
         <h2>Adopter Information</h2>
         <h3>First Name:</h3>
         <input type="text" id="firstName" name="firstName" value="">
@@ -90,30 +91,17 @@
         <button type="submit" class="btn">Submit</button>
       </div>
     </form>
-    <div id="profile-display">
-      <p>User's Name: <span class="user-full-name"></span></p>
-      <p>User's Birth Date: <span class="user-DOB"></span></p>
-      <p>User has cats: <span class="user-has-cats"></span></p>
-      <p>User has children: <span class="user-has-kids"></span></p>
-      <p>User will keep indoors or outdoors: <span class="user-indoor-pref"></span></p>
-      <p>User's preferred cat age: <span class="user-age-pref"></span></p>
-      <p>User's cat health preference: <span class="user-health-pref"></span></p>
-      <p>User's chosen cat: <span class="best-cat-name"></span></p>
-      <p>User's chosen cat picture: <span class="best-cat-picture"></span></p>
-      <p>User's Fluff: <span class="user-fluff"></span></p>
-      <p>User's Disposition: <span class="user-disposition"></span></p>
-      <ol id="other-cats">
-      </ol>
-    </div>
+
     <div id="cat-display">
-      <blockquote>
+      <p>Your cat match is... <span class="best-cat-name"></span>!</p>
+      <span class="cat-picture"></span>
         <p><span class="cat-name"></span> is a precious <span class="cat-age"></span> year old and <span class="cat-other-cats"></span>. <span class="cat-name"></span> <span class="cat-kids"></span>.</p>
         <p>They prefer <span class="cat-indoor-pref"></span>. <span class="cat-name"></span> <span class="cat-health"></span>.</p>
-      </blockquote>
-      <p>Cat's Fluff: <span class="cat-fluff"></span></p>
-      <p>Cat's Disposition: <span class="cat-disposition"></span></p>
-      <p class="align-right"><span class="cat-picture"></span></p>
+        <p>Here are some other potential cat matches for you:</p>
     </div>
 
+      <ol id="other-cats">
+      </ol>
+  </div>
   </body>
 </html>
