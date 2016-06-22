@@ -17,6 +17,7 @@ h2 {
 
 .jumbotron {
   margin-bottom: 0px;
+  margin-top: 45px;
   background-image: url("../img/cats1.jpeg") !important;
   background-position: 0% 25%;
   background-size: cover;
@@ -50,4 +51,8 @@ body {
 
 #basic-cat-info, #advanced-cat-questions {
   display: none;
+}
+
+.button {
+  margin-left: 0px;
 }
