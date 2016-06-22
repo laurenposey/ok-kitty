@@ -1,3 +1,6 @@
+#rehome-output {
+  display: none;
+}
 .jumbotron {
   background-image: url("../img/cats1.jpeg") !important;
   background-position: 0% 25%;
@@ -39,4 +42,9 @@ body {
 .nav a {
   background-color: #519D9E;
   color: black !important;
+}
+
+.output-info {
+  font-size: 200%;
+  margin-left: 30px;
 }
