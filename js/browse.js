@@ -1,6 +1,6 @@
 var kitties = [];
 var catnames = ["Chairman Meow", "Lulu", "June", "Penny", "Queen Gwendolyn", "Hazel", "Huxley", "Meow Ming", "Buffy", "Mittens", "Keith", "Todd", "Chad", "Goober", "Randy", "Kat"];
-var catpictures = ["img/lordweber.jpg", "img/lulu.jpg", "img/otto.jpg", "img/face-paw.jpg", "img/fluffybutt.jpg", "img/crosseyedcat.jpg", "img/huxley.jpg", "img/meowming.jpg"]
+var catpictures = ["img/lordweber.jpg", "img/lulu.jpg", "img/otto.jpg", "img/face-paw.jpg", "img/fluffybutt.jpg", "img/crosseyedcat.jpg", "img/huxley.jpg", "img/meowming.jpg"];
 
 function kittyCat() {
   for(var i=0; i<=1; i++) {
@@ -82,15 +82,39 @@ Kitty.prototype.healthString = function() {
 
 function kittiesDisplay (catarray) {
   for (i=0; i<catarray.length; i++) {
-    thisCatName=kitties[i].kittyName;
-    thisCatImg=kitties[i].img;
-    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src="+thisCatImg+" alt=...> <div class='caption'> <h3>"+thisCatName+"</h3><p></p> <p><a href='index.html'>Adopt Me!</a> </div> </div> </div>");
-  }
-}
+    var catName=kitties[i].kittyName;
+    var catImg=kitties[i].img;
+    var catAge=kitties[i].age;
+    var catString = (catName + " is a precious " + catAge + " year old and " + kitties[i].beWithCatsString()) + ".  " + catName + " " + (kitties[i].beWithKidsString()) + ".  " + "They prefer " + (kitties[i].indoorString()) + ".  " + catName + " " +  (kitties[i].healthString()) + ".";
+
+    // (yourCat[index][0].age);
+    // (yourCat[index][0].beWithCatsString());
+    // (yourCat[index][0].beWithKidsString());
+    // (yourCat[index][0].indoorString());
+    // (yourCat[index][0].healthString());
+    // (yourCat[index][0].disposition);
+    // (yourCat[index][0].fluff);
+
+    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src=" + catImg + " alt='a kitty'> <div class='caption'> <h3>" +catName+ "</h3> <div class='adopt-display'>" + catString + "  </div> <a href='index.html'>Adopt Me!</a> </div> </div> </div>");
+  };
+};
 
 $(document).ready(function() {
   event.preventDefault();
   kitties=[];
   kittyCat();
   kittiesDisplay(kitties);
+
+  $("a#adopt-me").last().click(function() {
+    event.preventDefault();
+    $("#show-contact").show();
+    $("#show-contact h2").text(newContact.firstName);
+    $(".first-name").text(newContact.firstName);
+    $(".last-name").text(newContact.lastName);
+
+
+    var index = ".adopt-display" + ($(this).attr("choice"));
+
+    $("index").append(kittiesDisplay());
+  });
 });

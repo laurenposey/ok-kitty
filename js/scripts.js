@@ -35,7 +35,6 @@ function kittyCat() {
   }
 }
 
-
 function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health, userDisposition, userFluff) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -126,7 +125,7 @@ Kitty.prototype.healthString = function() {
 
 function altKitties(list, remainingCats) {
   for (var i=1 ; i<remainingCats.length ; i++) {
-    list.append("<li><span class=altcat choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
+    list.append("<li><span class='altcat' choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
   }
 }
 
