@@ -216,17 +216,18 @@ $(document).ready(function() {
     event.preventDefault();
     var catName=$("input#catName").val();
     var catAge=parseInt($("input#catAge").val());
-    var catHealth=$("#catHealth").val();
-    var otherCatsGood=$("#otherCatsGood").val();
-    var humorsKids=$("#humorsKids").val();
-    var catDeClawed=$("#catDeClawed").val();
+    var catHealth=($("#catHealth").val()==="Yes");
+    var otherCatsGood=($("#otherCatsGood").val()==="Yes");
+    var humorsKids=($("#humorsKids").val()==="Yes");
+    var catDeClawed=($("#catDeClawed").val()==="Yes");
     var moreInfo=$("#moreInfo").val();
 
     var disposition = Math.floor((11*Math.random())-5);
     var fluff = Math.floor((11*Math.random())-5);
     var img = catpictures[Math.floor(catpictures.length*Math.random())]
 
-    var rehomedKitten = new Kitty(catName, otherCatsGood, humorsKids, catDeClawed, catAge, catHealth, img, disposition, fluff)
+    var rehomedKitten = new Kitty(catName, otherCatsGood, humorsKids, catDeClawed,
+       catAge, catHealth, img, disposition, fluff)
 
     $("#kittyCatName").text(catName);
     $("#kittyCatAge").text(catAge);
@@ -236,11 +237,21 @@ $(document).ready(function() {
     $("#kittyDeClawed").text(catDeClawed);
     $("#kittyMoreInfo").text(moreInfo);
     $("#rehome-output").show();
-    $(".rehome").toggle();
+    $("#rehome-form").hide();
 
     kitties.push(rehomedKitten)
     kittiesBrowseDisplay(kitties);
   });
+
+  $(".rehome-reset").click(function(event){
+    event.preventDefault();
+    $("#rehome-form").show();
+    $("#rehome-output").hide();
+    $("input#catName").val("");
+    $("#moreInfo").val("");
+    $("input#catAge").val("");
+  });
+
   $(".rehome-button").click(function(event){
     event.preventDefault();
     $("#rehome-page").show();
