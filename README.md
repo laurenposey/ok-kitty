@@ -18,6 +18,7 @@ Behavior  | Input Example | Output Example
  User can browse from a list of best kitty matches|User clicks on kitty name|kitty profile and img are displayed
  User can browse through available kitties, and click on survey link to see if kitty is a match|click event|User is taken to adoption survey
  User can opt to re-home a kitty|User inputs kitty Hazel's information|Hazel's information is displayed to the user and added to the browse kitties page
+ User can adopt a cat|User presses adopt this cat button|Cat is removed from our gallery of displayed cats
 
 ## Setup/Installation Requirements
 
