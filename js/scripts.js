@@ -189,23 +189,29 @@ $(document).ready(function() {
     var bestCat=yourCat[index][0];
     altKitties($("ol#other-cats"),yourCat)
     displayCatInfo(yourCat, index);
-    $("#cat-display").show();
-    $(".altcat").click(function(event) {
-      event.preventDefault();
-      index = $(this).attr("choice");
+
+    if (userFirstName === "" || userLastName === "" || userDOB === "" || isNaN(userCatAge)) {
+      alert("Please complete all of the questions.")
+    } else {
       $("#cat-display").show();
-      displayCatInfo(yourCat, index);
-    });
-    $("button#adopt-this-cat").click(function(event){
-      event.preventDefault();
-      $("ol#other-cats li").remove();
-      $("#adoption-success").show();
-      $("#advanced-cat-questions").hide();
-      $("#cat-display").hide();
-      var adoptedName=yourCat[index][0].kittyName;
-      adoptCat(adoptedName);
-      kittiesBrowseDisplay(kitties);
-    });
+      $(".altcat").click(function(event) {
+        event.preventDefault();
+        index = $(this).attr("choice");
+        $("#cat-display").show();
+        displayCatInfo(yourCat, index);
+      });
+
+      $("button#adopt-this-cat").click(function(event){
+        event.preventDefault();
+        $("ol#other-cats li").remove();
+        $("#adoption-success").show();
+        $("#advanced-cat-questions").hide();
+        $("#cat-display").hide();
+        var adoptedName=yourCat[index][0].kittyName;
+        adoptCat(adoptedName);
+        kittiesBrowseDisplay(kitties);
+      });
+    };
   });
   $("button#adoption-reset").click(function(event){
     event.preventDefault();
@@ -248,7 +254,10 @@ $(document).ready(function() {
     var fluff = Math.floor((11*Math.random())-5);
     var img = catpictures[Math.floor(catpictures.length*Math.random())]
     var rehomedKitten = new Kitty(catName, otherCatsGood, humorsKids, catDeClawed,
-       catAge, catHealth, img, disposition, fluff)
+       catAge, catHealth, img, disposition, fluff);
+    if (isNaN(catAge)) {
+      alert("Please enter an age for your cat.")
+    } else {
     $("#kittyCatName").text(catName);
     $("#kittyCatAge").text(catAge);
     $("#kittyCatHealth").text(catHealth);
@@ -260,6 +269,7 @@ $(document).ready(function() {
     $("#rehome-form").hide();
     kitties.push(rehomedKitten)
     kittiesBrowseDisplay(kitties);
+    }
   });
   $(".rehome-reset").click(function(event){
     event.preventDefault();
