@@ -43,7 +43,7 @@ function kittiesBrowseDisplay (catarray) {
     var catImg=kitties[i].img;
     var catAge=kitties[i].age;
     var catString = (catName + " is a precious " + catAge + " year old and " + kitties[i].beWithCatsString()) + ".  " + catName + " " + (kitties[i].beWithKidsString()) + ".  " + "They prefer " + (kitties[i].indoorString()) + ".  " + catName + " " +  (kitties[i].healthString()) + ".";
-    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src=" + catImg + " alt='a kitty'> <div class='caption'> <h3>" +catName+ "</h3> <div class='adopt-display'>" + catString + "  </div> <a class='adoption-button'>Adopt Me!</a> </div> </div> </div>");
+    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src=" + catImg + " alt='a kitty'> <div class='caption'> <h3>" +catName+ "</h3> <div class='adopt-display'>" + catString + "  </div> <button type='button' class='adoption-button'>Adopt Me!</button> </div> </div> </div>");
   };
 };
 
