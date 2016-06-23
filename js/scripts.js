@@ -47,6 +47,33 @@ function kittiesBrowseDisplay (catarray) {
   };
 };
 
+function altKitties(list, remainingCats) {
+  for (var i=0 ; i<remainingCats.length ; i++) {
+    list.append("<li><span class='altcat' choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
+  }
+}
+
+function adoptCat(name) {
+  adoptedCatIndex=kitties.findIndex(function(cat){
+    if(cat.kittyName===name) {
+      return true;
+    }
+  });
+  kitties.splice(adoptedCatIndex,1);
+}
+
+function displayCatInfo(yourCat, index) {
+  $(".cat-name").text(yourCat[index][0].kittyName)
+  $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
+  $(".cat-age").text(yourCat[index][0].age);
+  $(".cat-other-cats").text(yourCat[index][0].beWithCatsString());
+  $(".cat-kids").text(yourCat[index][0].beWithKidsString());
+  $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
+  $(".cat-health").text(yourCat[index][0].healthString());
+  $(".cat-disposition").text(yourCat[index][0].disposition);
+  $(".cat-fluff").text(yourCat[index][0].fluff);
+}
+
 function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health, userDisposition, userFluff) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -132,35 +159,6 @@ Kitty.prototype.healthString = function() {
     hasHealthIssuesString = "doesn't have any major health issues but should still be taken to the vet to stay healthy"
   }
   return hasHealthIssuesString
-}
-
-function altKitties(list, remainingCats) {
-  for (var i=0 ; i<remainingCats.length ; i++) {
-    list.append("<li><span class='altcat' choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
-  }
-}
-
-function adoptCat(name) {
-  console.log(name)
-  adoptedCatIndex=kitties.findIndex(function(cat){
-    if(cat.kittyName===name) {
-      return true;
-    }
-  });
-  debugger;
-  kitties.splice(adoptedCatIndex,1);
-}
-
-function displayCatInfo(yourCat, index) {
-  $(".cat-name").text(yourCat[index][0].kittyName)
-  $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
-  $(".cat-age").text(yourCat[index][0].age);
-  $(".cat-other-cats").text(yourCat[index][0].beWithCatsString());
-  $(".cat-kids").text(yourCat[index][0].beWithKidsString());
-  $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
-  $(".cat-health").text(yourCat[index][0].healthString());
-  $(".cat-disposition").text(yourCat[index][0].disposition);
-  $(".cat-fluff").text(yourCat[index][0].fluff);
 }
 
 $(document).ready(function() {
