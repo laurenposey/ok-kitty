@@ -148,6 +148,7 @@ body {
 
 .thumbnail {
   height: 480px;
+  overflow: auto;
   background-color: #519D9E;
   border: none;
   color: white !important;
