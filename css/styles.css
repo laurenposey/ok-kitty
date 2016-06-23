@@ -124,6 +124,10 @@ body {
   color: black !important;
 }
 
+.nav:hover {
+  cursor: pointer;
+}
+
 .cat-picture {
   display: inline;
 }
@@ -174,4 +178,8 @@ body {
 .output-info {
   font-size: 120%;
   margin-left: 30px;
+}
+
+#rehome-page, #browse-page {
+  display: none;
 }

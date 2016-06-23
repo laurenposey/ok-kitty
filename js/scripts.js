@@ -192,23 +192,23 @@ $(document).ready(function() {
   });
   $("button#user-to-basic").click(function(event) {
     event.preventDefault();
-    $("#user-info").hide()
-    $("#basic-cat-info").show()
+    $("#user-info").hide();
+    $("#basic-cat-info").show();
   });
   $("button#basic-to-user").click(function(event) {
     event.preventDefault();
-    $("#user-info").show()
-    $("#basic-cat-info").hide()
+    $("#user-info").show();
+    $("#basic-cat-info").hide();
   });
   $("button#basic-to-advanced").click(function(event) {
     event.preventDefault();
-    $("#advanced-cat-questions").show()
-    $("#basic-cat-info").hide()
+    $("#advanced-cat-questions").show();
+    $("#basic-cat-info").hide();
   });
   $("button#advanced-to-basic").click(function(event) {
     event.preventDefault();
-    $("#advanced-cat-questions").hide()
-    $("#basic-cat-info").show()
+    $("#advanced-cat-questions").hide();
+    $("#basic-cat-info").show();
   });
 
   $("form#rehome-input").submit(function(event){
@@ -230,5 +230,25 @@ $(document).ready(function() {
     $("#kittyMoreInfo").text(moreInfo);
     $("#rehome-output").show();
     $(".rehome").toggle();
+  });
+  $(".rehome-button").click(function(event){
+    event.preventDefault();
+    $("#rehome-page").show();
+    $("#browse-page").hide();
+    $("#adoption-page").hide();
+  });
+
+  $(".adoption-button").click(function(event){
+    event.preventDefault();
+    $("#rehome-page").hide();
+    $("#browse-page").hide();
+    $("#adoption-page").show();
+  });
+
+  $(".browse-button").click(function(event){
+    event.preventDefault();
+    $("#rehome-page").hide();
+    $("#adoption-page").hide();
+    $("#browse-page").show();
   });
 });

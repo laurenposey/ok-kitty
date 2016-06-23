@@ -11,7 +11,7 @@
     <title>Ok-Kitty</title>
   </head>
   <body>
-    <div class="container">
+    <div id="adoption-page" class="container">
       <nav class="navbar navbar-default">
         <div class="container">
           <a class="dropdown-toggle" data-toggle="dropdown">
@@ -24,16 +24,16 @@
           </a>
           <ul class="dropdown-menu pull-right">
             <li><a href="landingpage.html">Home</a></li>
-            <li class="active"><a href="index.html">Adopter Survey</a></li>
-            <li><a href="browse.html">Available Cats</a></li>
-            <li><a href="rehome.html">Rehome a Cat</a></li>
+            <li class="active"><a class="adoption-button">Adopter Survey</a></li>
+            <li><a class="browse-button">Available Cats</a></li>
+            <li><a class="rehome-button">Rehome a Cat</a></li>
           </ul>
           <div class="collapse navbar-collapse">
             <ul class="nav nav-tabs pull-right">
               <li><a href="landingpage.html">Home</a></li>
-              <li class="active"><a href="index.html">Adopter Survey</a></li>
-              <li><a href="browse.html">Available Cats</a></li>
-              <li><a href="rehome.html">Rehome a Cat</a></li>
+              <li class="active"><a class="adoption-button">Adopter Survey</a></li>
+              <li><a class="browse-button">Available Cats</a></li>
+              <li><a class="rehome-button">Rehome a Cat</a></li>
             </ul>
           </div>
         </div>
@@ -119,6 +119,124 @@
           <h2>Here are your potential cat matches, ranked by compatibility:</h2>
           <ol id="other-cats">
           </ol>
+      </div>
+    </div>
+    <div id="browse-page">
+      <div class="container">
+        <nav class="navbar navbar-default">
+          <div class="container">
+            <a class="dropdown-toggle" data-toggle="dropdown">
+              <button type="button" class="navbar-toggle" data-toggle="collapse"
+              data-target="#smallNav">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+            </a>
+            <ul class="dropdown-menu pull-right">
+              <li><a href="landingpage.html">Home</a></li>
+              <li><a class="adoption-button">Adopter Survey</a></li>
+              <li class="active"><a class="browse-button">Available Cats</a></li>
+              <li><a class="rehome-button">Rehome a Cat</a></li>
+            </ul>
+            <div class="collapse navbar-collapse">
+              <ul class="nav nav-tabs pull-right">
+                <li><a href="landingpage.html">Home</a></li>
+                <li><a class="adoption-button">Adopter Survey</a></li>
+                <li class="active"><a class="browse-button">Available Cats</a></li>
+                <li><a class="rehome-button">Rehome a Cat</a></li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+        <div class="jumbotron">
+          <h1>Available Cats</h1>
+        </div>
+      </div>
+      <div class="browsecats">
+
+      </div>
+    </div>
+    <div id="rehome-page" class="container">
+      <nav class="navbar navbar-default">
+      <div class="container">
+        <a class="dropdown-toggle" data-toggle="dropdown">
+          <button type="button" class="navbar-toggle" data-toggle="collapse"
+          data-target="#smallNav">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </a>
+        <ul class="dropdown-menu pull-right">
+          <li><a href="landingpage.html">Home</a></li>
+          <li><a class="adoption-button">Adopter Survey</a></li>
+          <li><a class="browse-button">Available Cats</a></li>
+          <li class="active"><a href="rehome.html">Rehome a Cat</a></li>
+        </ul>
+        <div class="collapse navbar-collapse">
+          <ul class="nav nav-tabs pull-right">
+            <li><a href="landingpage.html">Home</a></li>
+            <li><a class="adoption-button">Adopter Survey</a></li>
+            <li><a class="browse-button">Available Cats</a></li>
+            <li class="active"><a href="rehome.html">Rehome a Cat</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+      <div class="jumbotron">
+        <h1>Re-Home A Cat</h1>
+      </div>
+      <div class="rehome">
+        <h1>Surrender Form</h1>
+        <form id="rehome-input">
+
+          <h3>Kitty Name:</h3>
+          <input type="text" id="catName">
+
+          <h3>Cat Age:</h3>
+          <input id="catAge" type="catage">
+
+          <h3 class="rehome-heading">Does cat have any health issues?</h3>
+          <select id="catHealth" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3 class="rehome-heading">Does this kitty get along well with other kitties?</h3>
+          <select id="otherCatsGood" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3 class="rehome-heading">Is this kitty nice and patient with small human children?</h3>
+          <select id="humorsKids" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3 class="rehome-heading">Is this kitty de-clawed?</h3>
+          <select id="catDeClawed" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+
+          <h3 class="rehome-heading">Additional Information: Be specific.</h3>
+          <textarea id="moreInfo" class="form-control" rows="3"></textarea>
+
+          <button type="submit" class="btn">Submit</button>
+        </form>
+      </div>
+      <div id="rehome-output">
+        <h3>We're sorry to hear that you can no longer care for your furry companion that does nothing but love you...</h3>
+        <h1>Kitty to be Re-Homed</h1>
+        <p class="output-info">Name: <span id="kittyCatName"></span></p>
+        <p class="output-info">Age: <span id="kittyCatAge"></span></p>
+        <p class="output-info">Health Problems: <span id="kittyCatHealth"></span></p>
+        <p class="output-info">Good with other cats: <span id="kittyOtherCatsGood"></span></p>
+        <p class="output-info">Tolerates Kids: <span id="kittyHumorsKids"></span></p>
+        <p class="output-info">De-clawed: <span id="kittyDeClawed"></span></p>
+        <p class="output-info">Additional Information: <span id="kittyMoreInfo"></span></p>
       </div>
     </div>
   </body>
