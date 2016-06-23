@@ -125,7 +125,7 @@ Kitty.prototype.healthString = function() {
 }
 
 function altKitties(list, remainingCats) {
-  for (var i=1 ; i<remainingCats.length ; i++) {
+  for (var i=0 ; i<remainingCats.length ; i++) {
     list.append("<li><span class=altcat choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
   }
 }
@@ -162,8 +162,6 @@ $(document).ready(function() {
     $(".cat-name").text(bestCat.kittyName);
     $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
     altKitties($("ol#other-cats"),yourCat)
-    $("#profile-display").show();
-    $("#cat-display").show();
     $("#cat-display").show();
     $(".cat-age").text(bestCat.age);
     $(".cat-other-cats").text(bestCat.beWithCatsString());
@@ -172,20 +170,6 @@ $(document).ready(function() {
     $(".cat-health").text(bestCat.healthString());
     $(".cat-disposition").text(bestCat.disposition);
     $(".cat-fluff").text(bestCat.fluff);
-    $(".best-cat-name").click(function(event) {
-      $(".cat-name").text(bestCat.kittyName)
-      $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
-      event.preventDefault();
-      $("#cat-display").show();
-      $(".cat-name").text(bestCat.kittyName)
-      $(".cat-age").text(bestCat.age);
-      $(".cat-other-cats").text(bestCat.beWithCatsString());
-      $(".cat-kids").text(bestCat.beWithKidsString());
-      $(".cat-indoor-pref").text(bestCat.indoorString());
-      $(".cat-health").text(bestCat.healthString());
-      $(".cat-disposition").text(bestCat.disposition);
-      $(".cat-fluff").text(bestCat.fluff);
-    });
     $(".altcat").click(function(event) {
       event.preventDefault();
       var index = $(this).attr("choice");

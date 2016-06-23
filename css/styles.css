@@ -12,7 +12,7 @@ h1 {
 
 h2 {
   font-family: 'Courgette', cursive;
-  
+
 }
 
 .jumbotron {
@@ -83,12 +83,11 @@ body {
   font-size: 20px;
 }
 
-.best-cat-name {
-  text-decoration: underline;
+.title-cat {
   color: #9350BA;
 }
 
-.best-cat-name:hover, #other-cats li:hover {
+#other-cats li:hover {
   cursor: pointer;
   color: white;
 }
