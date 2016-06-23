@@ -36,13 +36,14 @@ function kittyCat() {
 }
 
 function kittiesBrowseDisplay (catarray) {
+  $(".browsecats").empty()
   for (i=0; i<catarray.length; i++) {
     var catName=kitties[i].kittyName;
     var catImg=kitties[i].img;
     var catAge=kitties[i].age;
     var catString = (catName + " is a precious " + catAge + " year old and " + kitties[i].beWithCatsString()) + ".  " + catName + " " + (kitties[i].beWithKidsString()) + ".  " + "They prefer " + (kitties[i].indoorString()) + ".  " + catName + " " +  (kitties[i].healthString()) + ".";
 
-    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src=" + catImg + " alt='a kitty'> <div class='caption'> <h3>" +catName+ "</h3> <div class='adopt-display'>" + catString + "  </div> <a href='index.html'>Adopt Me!</a> </div> </div> </div>");
+    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src=" + catImg + " alt='a kitty'> <div class='caption'> <h3>" +catName+ "</h3> <div class='adopt-display'>" + catString + "  </div> <a class='adoption-button'>Adopt Me!</a> </div> </div> </div>");
   };
 };
 function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health, userDisposition, userFluff) {
@@ -221,6 +222,12 @@ $(document).ready(function() {
     var catDeClawed=$("#catDeClawed").val();
     var moreInfo=$("#moreInfo").val();
 
+    var disposition = Math.floor((11*Math.random())-5);
+    var fluff = Math.floor((11*Math.random())-5);
+    var img = catpictures[Math.floor(catpictures.length*Math.random())]
+
+    var rehomedKitten = new Kitty(catName, otherCatsGood, humorsKids, catDeClawed, catAge, catHealth, img, disposition, fluff)
+
     $("#kittyCatName").text(catName);
     $("#kittyCatAge").text(catAge);
     $("#kittyCatHealth").text(catHealth);
@@ -230,11 +237,15 @@ $(document).ready(function() {
     $("#kittyMoreInfo").text(moreInfo);
     $("#rehome-output").show();
     $(".rehome").toggle();
+
+    kitties.push(rehomedKitten)
+    kittiesBrowseDisplay(kitties);
   });
   $(".rehome-button").click(function(event){
     event.preventDefault();
     $("#rehome-page").show();
     $("#browse-page").hide();
+    $("#landing-page").hide();
     $("#adoption-page").hide();
   });
 
@@ -242,6 +253,7 @@ $(document).ready(function() {
     event.preventDefault();
     $("#rehome-page").hide();
     $("#browse-page").hide();
+    $("#landing-page").hide();
     $("#adoption-page").show();
   });
 
@@ -249,6 +261,15 @@ $(document).ready(function() {
     event.preventDefault();
     $("#rehome-page").hide();
     $("#adoption-page").hide();
+    $("#landing-page").hide();
     $("#browse-page").show();
+  });
+
+  $(".landing-button").click(function(event){
+    event.preventDefault();
+    $("#rehome-page").hide();
+    $("#adoption-page").hide();
+    $("#browse-page").hide();
+    $("#landing-page").show();
   });
 });
