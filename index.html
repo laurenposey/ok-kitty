@@ -13,116 +13,113 @@
   <body>
     <div class="container">
       <nav class="navbar navbar-default">
-      <div class="container">
-        <a class="dropdown-toggle" data-toggle="dropdown">
-          <button type="button" class="navbar-toggle" data-toggle="collapse"
-          data-target="#smallNav">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </a>
-        <ul class="dropdown-menu pull-right">
-          <li><a href="landingpage.html">Home</a></li>
-          <li class="active"><a href="index.html">Adopter Survey</a></li>
-          <li><a href="browse.html">Available Cats</a></li>
-          <li><a href="rehome.html">Rehome a Cat</a></li>
-        </ul>
-        <div class="collapse navbar-collapse">
-          <ul class="nav nav-tabs pull-right">
+        <div class="container">
+          <a class="dropdown-toggle" data-toggle="dropdown">
+            <button type="button" class="navbar-toggle" data-toggle="collapse"
+            data-target="#smallNav">
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+          </a>
+          <ul class="dropdown-menu pull-right">
             <li><a href="landingpage.html">Home</a></li>
             <li class="active"><a href="index.html">Adopter Survey</a></li>
             <li><a href="browse.html">Available Cats</a></li>
             <li><a href="rehome.html">Rehome a Cat</a></li>
           </ul>
+          <div class="collapse navbar-collapse">
+            <ul class="nav nav-tabs pull-right">
+              <li><a href="landingpage.html">Home</a></li>
+              <li class="active"><a href="index.html">Adopter Survey</a></li>
+              <li><a href="browse.html">Available Cats</a></li>
+              <li><a href="rehome.html">Rehome a Cat</a></li>
+            </ul>
+          </div>
         </div>
+      </nav>
+      <div class="jumbotron">
+        <h1>Adopt a Cat</h1>
       </div>
-    </nav>
-    <div class="jumbotron">
-      <h1>Adopt a Cat</h1>
+      <form id="adopter-input">
+        <div id="user-info">
+          <h2>Adopter Information</h2>
+          <h3>First Name:</h3>
+          <input type="text" id="firstName" name="firstName" value="">
+          <h3>Last Name:</h3>
+          <input type="text" id="lastName" name="lastName" value="">
+          <h3>Please enter your date of birth:</h3>
+          <input id="userBirthDate" type="date">
+          <h3>Do you own any cats already?</h3>
+          <select id="userHaveCats" class="form-control">
+            <option value="No">I don't have other cats</option>
+            <option value="Yes">I have one or more cats already</option>
+          </select>
+          <h3>Do you have any children living with you?</h3>
+          <select id="userHaveKids" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <button type="button" id="user-to-basic" class="btn">Next Section</button>
+        </div>
+        <div class="container" id="basic-cat-info">
+          <h3>Would you prefer an indoor or an outdoor cat?</h3>
+          <input type="radio" name="indoorOutdoor" value="indoors" checked> Indoor<br>
+          <input type="radio" name="indoorOutdoor" value="outdoors"> Outdoor<br>
+          <h3>What age of cat would you prefer?</h3>
+          <input id="userCatAge" type="number">
+          <h3>Are you comfortable adopting a cat with health issues?</h3>
+          <select id="userCatHealth" class="form-control">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+          </select>
+          <button type="button" id="basic-to-user" class="btn">Previous Section</button>
+          <button type="button" id="basic-to-advanced" class="btn">Next Section</button>
+        </div>
+        <div class="container" id="advanced-cat-questions">
+          <h3>Are you shy or outgoing?</h3>
+          <select id="userPersonality" class="form-control">
+            <option value="3">Shy</option>
+            <option value="-3">Outgoing</option>
+          </select>
+          <h3>Are liberal or conservative?</h3>
+          <select id="userPolitics" class="form-control">
+            <option value="2">Liberal</option>
+            <option value="-2">Conservative</option>
+          </select>
+          <h3>Do you enjoy long walks on the beach at sunset?</h3>
+          <select id="userBeach" class="form-control">
+            <option value="1">Yes</option>
+            <option value="-1">No</option>
+          </select>
+          <h3>What is your favorite movie genre?</h3>
+          <select id="userMovie" class="form-control">
+            <option value="4">Horror</option>
+            <option value="2">Action</option>
+            <option value="0">Comedy</option>
+            <option value="-2">Drama</option>
+            <option value="-4">Classics</option>
+          </select>
+          <h3>What's your favorite cuisine?</h3>
+          <select id="userCuisine" class="form-control">
+            <option value="2">Mexican</option>
+            <option value="1">Italian</option>
+            <option value="-1">Mediterranean</option>
+            <option value="-2">Chinese</option>
+          </select>
+          <button type="button" id="advanced-to-basic" class="btn">Previous Section</button>
+          <button type="submit" class="btn">Submit</button>
+        </div>
+      </form>
+      <div id="cat-display">
+        <h2>Your purrr-fect cat match is... <span class="cat-name title-cat"></span>!</h2>
+        <span class="cat-picture"></span>
+          <p><span class="cat-name"></span> is a precious <span class="cat-age"></span> year old and <span class="cat-other-cats"></span>. <span class="cat-name"></span> <span class="cat-kids"></span>.</p>
+          <p>They prefer <span class="cat-indoor-pref"></span>. <span class="cat-name"></span> <span class="cat-health"></span>.</p>
+          <h2>Here are your potential cat matches, ranked by compatibility:</h2>
+          <ol id="other-cats">
+          </ol>
+      </div>
     </div>
-
-    <form id="adopter-input">
-      <div id="user-info">
-        <h2>Adopter Information</h2>
-        <h3>First Name:</h3>
-        <input type="text" id="firstName" name="firstName" value="">
-        <h3>Last Name:</h3>
-        <input type="text" id="lastName" name="lastName" value="">
-        <h3>Please enter your date of birth:</h3>
-        <input id="userBirthDate" type="date">
-        <h3>Do you own any cats already?</h3>
-        <select id="userHaveCats" class="form-control">
-          <option value="No">I don't have other cats</option>
-          <option value="Yes">I have one or more cats already</option>
-        </select>
-        <h3>Do you have any children living with you?</h3>
-        <select id="userHaveKids" class="form-control">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-        <button type="button" id="user-to-basic" class="btn">Next Section</button>
-      </div>
-      <div class="container" id="basic-cat-info">
-        <h3>Would you prefer an indoor or an outdoor cat?</h3>
-        <input type="radio" name="indoorOutdoor" value="indoors" checked> Indoor<br>
-        <input type="radio" name="indoorOutdoor" value="outdoors"> Outdoor<br>
-        <h3>What age of cat would you prefer?</h3>
-        <input id="userCatAge" type="number">
-        <h3>Are you comfortable adopting a cat with health issues?</h3>
-        <select id="userCatHealth" class="form-control">
-          <option value="Yes">Yes</option>
-          <option value="No">No</option>
-        </select>
-        <button type="button" id="basic-to-user" class="btn">Previous Section</button>
-        <button type="button" id="basic-to-advanced" class="btn">Next Section</button>
-      </div>
-      <div class="container" id="advanced-cat-questions">
-        <h3>Are you shy or outgoing?</h3>
-        <select id="userPersonality" class="form-control">
-          <option value="3">Shy</option>
-          <option value="-3">Outgoing</option>
-        </select>
-        <h3>Are liberal or conservative?</h3>
-        <select id="userPolitics" class="form-control">
-          <option value="2">Liberal</option>
-          <option value="-2">Conservative</option>
-        </select>
-        <h3>Do you enjoy long walks on the beach at sunset?</h3>
-        <select id="userBeach" class="form-control">
-          <option value="1">Yes</option>
-          <option value="-1">No</option>
-        </select>
-        <h3>What is your favorite movie genre?</h3>
-        <select id="userMovie" class="form-control">
-          <option value="4">Horror</option>
-          <option value="2">Action</option>
-          <option value="0">Comedy</option>
-          <option value="-2">Drama</option>
-          <option value="-4">Classics</option>
-        </select>
-        <h3>What's your favorite cuisine?</h3>
-        <select id="userCuisine" class="form-control">
-          <option value="2">Mexican</option>
-          <option value="1">Italian</option>
-          <option value="-1">Mediterranean</option>
-          <option value="-2">Chinese</option>
-        </select>
-        <button type="button" id="advanced-to-basic" class="btn">Previous Section</button>
-        <button type="submit" class="btn">Submit</button>
-      </div>
-    </form>
-
-    <div id="cat-display">
-      <h2>Your purrr-fect cat match is... <span class="best-cat-name"></span>!</h2>
-      <span class="cat-picture"></span>
-        <p><span class="cat-name"></span> is a precious <span class="cat-age"></span> year old and <span class="cat-other-cats"></span>. <span class="cat-name"></span> <span class="cat-kids"></span>.</p>
-        <p>They prefer <span class="cat-indoor-pref"></span>. <span class="cat-name"></span> <span class="cat-health"></span>.</p>
-        <h2>Here are some other potential cat matches for you:</h2>
-    </div>
-
-      <ol id="other-cats">
-      </ol>
-  </div>
   </body>
 </html>

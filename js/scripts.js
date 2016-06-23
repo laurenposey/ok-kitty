@@ -1,6 +1,6 @@
 var kitties = [];
 var catnames = ["Chairman Meow", "Lulu", "June", "Penny", "Queen Gwendolyn", "Hazel", "Huxley", "Meow Ming", "Buffy", "Mittens", "Keith", "Todd", "Chad", "Goober", "Randy", "Kat"];
-var catpictures = ["img/lordweber.jpg", "img/lulu.jpg", "img/otto.jpg", "img/face-paw.jpg", "img/fluffybutt.jpg", "img/crosseyedcat.jpg", "img/huxley.jpg", "img/meowming.jpg"]
+var catpictures = ["img/lordweber.jpg", "img/lulu.jpg", "img/otto.jpg", "img/face-paw.jpg", "img/fluffybutt.jpg", "img/crosseyedcat.jpg", "img/huxley.jpg", "img/meowming.jpg", "img/cat-on-laptop.jpg", "img/derpcat.jpg", "img/tuxedo.jpeg", "img/winkingcat.jpg", "img/catpals.jpg", "img/keith.jpg", "img/ladymeowingtons.jpg", "img/ladymeowtingtons2.jpg"]
 function kittyCat() {
   for(var i=0; i<=1; i++) {
     for(var j=0; j<=1; j++) {
@@ -26,12 +26,20 @@ function kittyCat() {
           var age = 1+(4*l)+Math.floor((5*Math.random())+1);
           var disposition = Math.floor((11*Math.random())-5);
           var fluff = Math.floor((11*Math.random())-5);
-          var img = catpictures[Math.floor(8*Math.random())]
+          var img = catpictures[Math.floor(catpictures.length*Math.random())]
           var Kitten = new Kitty(kittyName, cats, kids, indoor, age, health, img, disposition, fluff);
           kitties.push(Kitten);
         }
       }
     }
+  }
+}
+
+function kittiesDisplay (catarray) {
+  for (i=0; i<catarray.length; i++) {
+    thisCatName=kitties[i].kittyName;
+    thisCatImg=kitties[i].img;
+    $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src="+thisCatImg+" alt=...> <div class='caption'> <h3>"+thisCatName+"</h3><p></p> <p><a href='index.html'>Adopt Me!</a> </div> </div> </div>");
   }
 }
 
@@ -124,17 +132,31 @@ Kitty.prototype.healthString = function() {
 }
 
 function altKitties(list, remainingCats) {
+
   for (var i=1 ; i<remainingCats.length ; i++) {
     list.append("<li><span class='altcat' choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
   }
 }
 
+function displayCatInfo(yourCat, index) {
+  $(".cat-name").text(yourCat[index][0].kittyName)
+  $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
+  $(".cat-age").text(yourCat[index][0].age);
+  $(".cat-other-cats").text(yourCat[index][0].beWithCatsString());
+  $(".cat-kids").text(yourCat[index][0].beWithKidsString());
+  $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
+  $(".cat-health").text(yourCat[index][0].healthString());
+  $(".cat-disposition").text(yourCat[index][0].disposition);
+  $(".cat-fluff").text(yourCat[index][0].fluff);
+}
+
 $(document).ready(function() {
+  kitties=[];
+  kittyCat();
+  kittiesDisplay(kitties);
   $("#adopter-input").submit(function(event){
     event.preventDefault();
     $("ol#other-cats li").remove();
-    kitties=[];
-    kittyCat();
     var userFirstName=$("input#firstName").val();
     var userLastName=$("input#lastName").val();
     var userDOB=$("input#userBirthDate").val();
@@ -157,47 +179,14 @@ $(document).ready(function() {
     var yourCat=User1.match(kitties);
     console.log(yourCat)
     var bestCat=yourCat[0][0];
-    $(".best-cat-name").text(bestCat.kittyName);
-    $(".cat-name").text(bestCat.kittyName);
-    $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>');
     altKitties($("ol#other-cats"),yourCat)
-    $("#profile-display").show();
+    displayCatInfo(yourCat, 0);
     $("#cat-display").show();
-    $("#cat-display").show();
-    $(".cat-age").text(bestCat.age);
-    $(".cat-other-cats").text(bestCat.beWithCatsString());
-    $(".cat-kids").text(bestCat.beWithKidsString());
-    $(".cat-indoor-pref").text(bestCat.indoorString());
-    $(".cat-health").text(bestCat.healthString());
-    $(".cat-disposition").text(bestCat.disposition);
-    $(".cat-fluff").text(bestCat.fluff);
-    $(".best-cat-name").click(function(event) {
-      $(".cat-name").text(bestCat.kittyName)
-      $(".cat-picture").html('<img src="'+bestCat.img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
-      event.preventDefault();
-      $("#cat-display").show();
-      $(".cat-name").text(bestCat.kittyName)
-      $(".cat-age").text(bestCat.age);
-      $(".cat-other-cats").text(bestCat.beWithCatsString());
-      $(".cat-kids").text(bestCat.beWithKidsString());
-      $(".cat-indoor-pref").text(bestCat.indoorString());
-      $(".cat-health").text(bestCat.healthString());
-      $(".cat-disposition").text(bestCat.disposition);
-      $(".cat-fluff").text(bestCat.fluff);
-    });
     $(".altcat").click(function(event) {
       event.preventDefault();
       var index = $(this).attr("choice");
       $("#cat-display").show();
-      $(".cat-name").text(yourCat[index][0].kittyName)
-      $(".cat-picture").html('<img src="'+yourCat[index][0].img+'" class="img-thumbnail" width="304" height="236" alt=your cat>')
-      $(".cat-age").text(yourCat[index][0].age);
-      $(".cat-other-cats").text(yourCat[index][0].beWithCatsString());
-      $(".cat-kids").text(yourCat[index][0].beWithKidsString());
-      $(".cat-indoor-pref").text(yourCat[index][0].indoorString());
-      $(".cat-health").text(yourCat[index][0].healthString());
-      $(".cat-disposition").text(yourCat[index][0].disposition);
-      $(".cat-fluff").text(yourCat[index][0].fluff);
+      displayCatInfo(yourCat, index);
     });
   });
   $("button#user-to-basic").click(function(event) {
@@ -219,5 +208,26 @@ $(document).ready(function() {
     event.preventDefault();
     $("#advanced-cat-questions").hide()
     $("#basic-cat-info").show()
+  });
+
+  $("form#rehome-input").submit(function(event){
+    event.preventDefault();
+    var catName=$("input#catName").val();
+    var catAge=parseInt($("input#catAge").val());
+    var catHealth=$("#catHealth").val();
+    var otherCatsGood=$("#otherCatsGood").val();
+    var humorsKids=$("#humorsKids").val();
+    var catDeClawed=$("#catDeClawed").val();
+    var moreInfo=$("#moreInfo").val();
+
+    $("#kittyCatName").text(catName);
+    $("#kittyCatAge").text(catAge);
+    $("#kittyCatHealth").text(catHealth);
+    $("#kittyOtherCatsGood").text(otherCatsGood);
+    $("#kittyHumorsKids").text(humorsKids);
+    $("#kittyDeClawed").text(catDeClawed);
+    $("#kittyMoreInfo").text(moreInfo);
+    $("#rehome-output").show();
+    $(".rehome").toggle();
   });
 });
