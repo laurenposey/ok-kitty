@@ -1,6 +1,7 @@
 var kitties = [];
 var catnames = ["Chairman Meow", "Lulu", "June", "Penny", "Queen Gwendolyn", "Hazel", "Huxley", "Meow Ming", "Buffy", "Mittens", "Keith", "Todd", "Chad", "Goober", "Randy", "Kat"];
 var catpictures = ["img/lordweber.jpg", "img/lulu.jpg", "img/otto.jpg", "img/face-paw.jpg", "img/fluffybutt.jpg", "img/crosseyedcat.jpg", "img/huxley.jpg", "img/meowming.jpg", "img/cat-on-laptop.jpg", "img/derpcat.jpg", "img/tuxedo.jpeg", "img/winkingcat.jpg", "img/catpals.jpg", "img/keith.jpg", "img/ladymeowingtons.jpg", "img/ladymeowtingtons2.jpg"]
+
 function kittyCat() {
   for(var i=0; i<=1; i++) {
     for(var j=0; j<=1; j++) {
@@ -42,10 +43,10 @@ function kittiesBrowseDisplay (catarray) {
     var catImg=kitties[i].img;
     var catAge=kitties[i].age;
     var catString = (catName + " is a precious " + catAge + " year old and " + kitties[i].beWithCatsString()) + ".  " + catName + " " + (kitties[i].beWithKidsString()) + ".  " + "They prefer " + (kitties[i].indoorString()) + ".  " + catName + " " +  (kitties[i].healthString()) + ".";
-
     $(".browsecats").append("<div class='col-sm-6 col-md-4'> <div class='thumbnail'> <img class='.img-responsive' src=" + catImg + " alt='a kitty'> <div class='caption'> <h3>" +catName+ "</h3> <div class='adopt-display'>" + catString + "  </div> <a class='adoption-button'>Adopt Me!</a> </div> </div> </div>");
   };
 };
+
 function User(firstName, lastName, haveCats, haveKids, userDOB, isIndoor, age, health, userDisposition, userFluff) {
   this.firstName = firstName;
   this.lastName = lastName;
@@ -134,7 +135,6 @@ Kitty.prototype.healthString = function() {
 }
 
 function altKitties(list, remainingCats) {
-
   for (var i=1 ; i<remainingCats.length ; i++) {
     list.append("<li><span class='altcat' choice="+i+">"+remainingCats[i][0].kittyName+"</span></li>");
   }
@@ -172,12 +172,9 @@ $(document).ready(function() {
     var userBeach=parseInt($("#userBeach").val());
     var userMovie=parseInt($("#userMovie").val());
     var userFood=parseInt($("#userCuisine").val());
-
     var userFluff=userPersonality+userBeach+userFood+userMovie;
     var userDisposition=userPolitics+userBeach+userFood-userMovie;
-
     var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor, userCatAge, userCatHealth, userDisposition, userFluff);
-
     var yourCat=User1.match(kitties);
     console.log(yourCat)
     var bestCat=yourCat[0][0];
@@ -211,7 +208,6 @@ $(document).ready(function() {
     $("#advanced-cat-questions").hide();
     $("#basic-cat-info").show();
   });
-
   $("form#rehome-input").submit(function(event){
     event.preventDefault();
     var catName=$("input#catName").val();
@@ -221,14 +217,11 @@ $(document).ready(function() {
     var humorsKids=($("#humorsKids").val()==="Yes");
     var catDeClawed=($("#catDeClawed").val()==="Yes");
     var moreInfo=$("#moreInfo").val();
-
     var disposition = Math.floor((11*Math.random())-5);
     var fluff = Math.floor((11*Math.random())-5);
     var img = catpictures[Math.floor(catpictures.length*Math.random())]
-
     var rehomedKitten = new Kitty(catName, otherCatsGood, humorsKids, catDeClawed,
        catAge, catHealth, img, disposition, fluff)
-
     $("#kittyCatName").text(catName);
     $("#kittyCatAge").text(catAge);
     $("#kittyCatHealth").text(catHealth);
@@ -238,11 +231,9 @@ $(document).ready(function() {
     $("#kittyMoreInfo").text(moreInfo);
     $("#rehome-output").show();
     $("#rehome-form").hide();
-
     kitties.push(rehomedKitten)
     kittiesBrowseDisplay(kitties);
   });
-
   $(".rehome-reset").click(function(event){
     event.preventDefault();
     $("#rehome-form").show();
@@ -251,7 +242,6 @@ $(document).ready(function() {
     $("#moreInfo").val("");
     $("input#catAge").val("");
   });
-
   $(".rehome-button").click(function(event){
     event.preventDefault();
     $("#rehome-page").show();
@@ -259,7 +249,6 @@ $(document).ready(function() {
     $("#landing-page").hide();
     $("#adoption-page").hide();
   });
-
   $(".adoption-button").click(function(event){
     event.preventDefault();
     $("#rehome-page").hide();
@@ -267,7 +256,6 @@ $(document).ready(function() {
     $("#landing-page").hide();
     $("#adoption-page").show();
   });
-
   $(".browse-button").click(function(event){
     event.preventDefault();
     $("#rehome-page").hide();
@@ -275,7 +263,6 @@ $(document).ready(function() {
     $("#landing-page").hide();
     $("#browse-page").show();
   });
-
   $(".landing-button").click(function(event){
     event.preventDefault();
     $("#rehome-page").hide();

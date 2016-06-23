@@ -2,7 +2,7 @@
 
 #### _Ok Kitty, 20 June 2016_
 
-#### By _**Lauren Posey, Rachael Bermudes, Charles Ewel, and Charles Baxter. Epicodus**_
+#### By _**Lauren Posey, Rachael Bermudes, Charles Ewel, and Charles Baxter.**_
 
 ## Description
 
@@ -12,18 +12,18 @@ _This is an Epicodus student project that creates a webpage for cats that need t
 
 Behavior  | Input Example | Output Example
 ------------- | ------------- | -------------
- Create a User Profile|User inputs answers to form questions  | An object is created for that user and it's properties displayed
- User is matched with cats based on their profile| see above | Someone who has other cats and wants an outdoor cat gets matched with a cat who plays well with others and stays outside
- Match is displayed in output with kitty img|click event submit|best kitty match is displayed
- User can browse from a list of best kitty matches|click event|a list of best kitty matches are displayed
- User can click on any item in best kitty matches and view cat's profile|click on kitty Huxley|Huxley's profile is displayed   
- Display in need kitties on browsing page user can click image for more information|click event on photo |kitty profile is displayed
- User can opt to re-home a kitty|User inputs kitty Hazel's information|Hazel's information is displayed to the user
+ Create a User Profile|User inputs answers to form questions|An user object is created and used to find their best kitty match in the backend
+ User is matched with cats based on their profile|User answers 'yes' to wanting an indoor only kitty| User is matched with an indoor only kitty
+ Matches are displayed in output with kitty img|click event submit|best kitty match and other matches are displayed
+ User can browse from a list of best kitty matches|User clicks on kitty name|kitty profile and img are displayed
+ User can browse through available kitties, and click on survey link to see if kitty is a match|click event|User is taken to adoption survey
+ User can opt to re-home a kitty|User inputs kitty Hazel's information|Hazel's information is displayed to the user and added to the browse kitties page
 
 ## Setup/Installation Requirements
 
 * _Establish an internet connection_
 * _Open a web browser_
+* _laurenposey.github.io/ok-kitty_
 
 ## Known Bugs
 

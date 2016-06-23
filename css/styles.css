@@ -1,3 +1,51 @@
+#rehome-page, #browse-page, #adoption-page, #rehome-output, #basic-cat-info, #advanced-cat-questions{
+  display: none;
+}
+
+body {
+  background-color: #9DC8C8;
+  font-family: 'Courgette', cursive;
+  font-size: 16px;
+}
+
+.jumbotron {
+  background-image: url("../img/cats1.jpeg") !important;
+  background-position: 0% 25%;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: white;
+  text-shadow: black 0.3em 0.3em 0.3em;
+  -webkit-text-stroke: 2px black;
+}
+
+.jumbotron h1 {
+  margin-left: 20px;
+  color: #ffffff !important;
+}
+
+.navbar {
+  padding-top: 7px;
+  margin-bottom: 0;
+  background-color: #9DC8C8;
+  border: none;
+}
+
+.nav:hover {
+  cursor: pointer;
+}
+
+.nav a {
+  background-color: #519D9E;
+  color: black !important;
+}
+
+.btn {
+  margin-top: 20px;
+  background-color: #519D9E;
+  color: white;
+  margin-bottom: 20px;
+}
+
 .catpicture {
   width: 100%;
   height: auto;
@@ -11,9 +59,11 @@
   margin-bottom: 20px;
   text-align: center;
 }
+
 .marketing h2 {
   font-weight: normal;
 }
+
 .marketing .col-lg-4 p {
   margin-right: 10px;
   margin-left: 10px;
@@ -32,7 +82,6 @@
   color: white;
   font-size: 108px;
   margin-left: 15px;
-
 }
 
 .sub-heading {
@@ -49,48 +98,10 @@
 
 .adopter {
   margin-left: 20px;
-  font-family: 'Courgette', cursive;
-
-}
-
-.jumbotron h1 {
-  margin-left: 20px;
-  color: #ffffff !important;
 }
 
 .rehome-heading {
   margin-left: 20px;
-}
-
-
-.jumbotron {
-  background-image: url("../img/cats1.jpeg") !important;
-  background-position: 0% 25%;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: white;
-  text-shadow: black 0.3em 0.3em 0.3em;
-  -webkit-text-stroke: 2px black;
-}
-
-.navbar {
-  padding-top: 7px;
-  margin-bottom: 0;
-  background-color: #9DC8C8;
-  border: none;
-}
-
-body {
-  background-color: #9DC8C8;
-  font-family: 'Courgette', cursive;
-  font-size: 16px;
-}
-
-.btn {
-  margin-top: 20px;
-  background-color: #519D9E;
-  color: white;
-  margin-bottom: 20px;
 }
 
 .pull-down {
@@ -111,23 +122,6 @@ body {
   margin-bottom: auto;
 }
 
-#basic-cat-info, #advanced-cat-questions {
-  display: none;
-}
-
-.button {
-  margin-left: 0px;
-}
-
-.nav a {
-  background-color: #519D9E;
-  color: black !important;
-}
-
-.nav:hover {
-  cursor: pointer;
-}
-
 .cat-picture {
   display: inline;
 }
@@ -135,14 +129,15 @@ body {
 .potential-cats {
   float: bottom;
 }
+
+.title-cat {
+  color: #9350BA;
+}
+
 #other-cats li {
   text-decoration: underline;
   color: #9350BA;
   font-size: 20px;
-}
-
-.title-cat {
-  color: #9350BA;
 }
 
 #other-cats li:hover {
@@ -171,15 +166,7 @@ body {
   padding-bottom: 15px;
 }
 
-#rehome-output {
-  display: none;
-}
-
 .output-info {
   font-size: 120%;
   margin-left: 30px;
-}
-
-#rehome-page, #browse-page, #adoption-page {
-  display: none;
 }
