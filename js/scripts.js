@@ -187,27 +187,27 @@ $(document).ready(function() {
     var userDisposition=userPolitics+userBeach+userFood-userMovie;
     var User1=new User(userFirstName, userLastName, userHaveCats, userHaveKids, userDOB, userIsIndoor, userCatAge, userCatHealth, userDisposition, userFluff);
     var yourCat=User1.match(kitties);
-    var bestCat=yourCat[0][0];
+    var index=0;
+    var bestCat=yourCat[index][0];
     altKitties($("ol#other-cats"),yourCat)
-    displayCatInfo(yourCat, 0);
+    displayCatInfo(yourCat, index);
     $("#cat-display").show();
     $(".altcat").click(function(event) {
       event.preventDefault();
-      var index = $(this).attr("choice");
+      index = $(this).attr("choice");
       $("#cat-display").show();
       displayCatInfo(yourCat, index);
-      $("button#adopt-this-cat").click(function(event){
-        event.preventDefault();
-        $("ol#other-cats li").remove();
-        $("#adoption-success").show();
-        $("#advanced-cat-questions").hide();
-        $("#cat-display").hide();
-        var adoptedName=yourCat[index][0].kittyName;
-        adoptCat(adoptedName);
-        kittiesBrowseDisplay(kitties);
-      });
     });
-
+    $("button#adopt-this-cat").click(function(event){
+      event.preventDefault();
+      $("ol#other-cats li").remove();
+      $("#adoption-success").show();
+      $("#advanced-cat-questions").hide();
+      $("#cat-display").hide();
+      var adoptedName=yourCat[index][0].kittyName;
+      adoptCat(adoptedName);
+      kittiesBrowseDisplay(kitties);
+    });
   });
   $("button#adoption-reset").click(function(event){
     event.preventDefault();
