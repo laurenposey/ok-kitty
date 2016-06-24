@@ -201,12 +201,13 @@ $(document).ready(function() {
         displayCatInfo(yourCat, index);
       });
 
-      $("button#adopt-this-cat").click(function(event){
+      $("button#adopt-this-cat").unbind().click(function(event){
         event.preventDefault();
         $("ol#other-cats li").remove();
         $("#adoption-success").show();
         $("#advanced-cat-questions").hide();
         $("#cat-display").hide();
+        console.log(index)
         var adoptedName=yourCat[index][0].kittyName;
         adoptCat(adoptedName);
         kittiesBrowseDisplay(kitties);
