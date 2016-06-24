@@ -207,7 +207,6 @@ $(document).ready(function() {
         $("#adoption-success").show();
         $("#advanced-cat-questions").hide();
         $("#cat-display").hide();
-        console.log(index)
         var adoptedName=yourCat[index][0].kittyName;
         adoptCat(adoptedName);
         kittiesBrowseDisplay(kitties);
