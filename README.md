@@ -2,7 +2,7 @@
 
 #### _Ok Kitty, 20 June 2016_
 
-#### By _**Lauren Posey, Rachael Bermudes, Charles Ewel, and Charles Baxter.**_
+#### By _**Lauren Valkyrie, Rachael Bermudes, Charles Ewel, and Charles Baxter.**_
 
 ## Description
 
@@ -31,10 +31,6 @@ Behavior  | Input Example | Output Example
 
 * _none_
 
-## Support and contact details
-
-_If you run into any issues or have questions, ideas, or concerns, please feel free to contact Lauren at <a href="mailto:mrslaurenposey@gmail.com">mrslaurenposey@gmail.com</a>._
-
 ## Technologies Used
 
 * _JavaScript_
@@ -45,7 +41,7 @@ _If you run into any issues or have questions, ideas, or concerns, please feel f
 
 *MIT License*
 
-Copyright (c) 2016 **_Lauren Posey, Rachael Bermudes, Charles Ewel, and Charles Baxter
+Copyright (c) 2016 **_Lauren Valkyrie, Rachael Bermudes, Charles Ewel, and Charles Baxter
 Epicodus_**
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
